@@ -13,3 +13,6 @@
   The language programe used is Java and the design was made with XML.
   This app works with a SQLite database.
 </p>
+<p align="center">
+  :warning: This App is still in development :warning:
+</p>
