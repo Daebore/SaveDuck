@@ -15,8 +15,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout5"
-            android:layout_width="372dp"
-            android:layout_height="544dp"
+            android:layout_width="373dp"
+            android:layout_height="566dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/custom_layout"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -28,10 +28,12 @@
 
             <ImageView
                 android:id="@+id/fotoAddPig"
-                android:layout_width="205dp"
-                android:layout_height="172dp"
+                android:layout_width="224dp"
+                android:layout_height="191dp"
+                android:layout_marginTop="4dp"
                 android:src="@drawable/add_pig"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,14 +41,14 @@
                 android:id="@+id/textoCrearCuenta2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:fontFamily="sans-serif"
                 android:text="Añadir ingresos"
                 android:textColor="@color/black"
                 android:textSize="35sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintHorizontal_bias="0.504"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fotoAddPig" />
 
@@ -57,10 +59,10 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="32dp"
+                android:drawableLeft="@drawable/ic_money"
                 android:hint="Ingresos"
                 android:inputType="numberDecimal"
                 android:textColor="@color/black"
-                android:drawableLeft="@drawable/ic_money"
                 android:textSize="21sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.516"
@@ -68,22 +70,39 @@
                 app:layout_constraintTop_toBottomOf="@+id/textoCrearCuenta2"
                 app:srcCompat="@drawable/logosf" />
 
+            <EditText
+                android:id="@+id/pesoAct2"
+                android:layout_width="341dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="104dp"
+                android:drawableLeft="@drawable/ic_message"
+                android:hint="Concepto"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textSize="21sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textoCrearCuenta2"
+                app:srcCompat="@drawable/logosf" />
+
             <ImageButton
                 android:id="@+id/botonIngresos"
-                android:layout_width="172dp"
-                android:layout_height="150dp"
+                android:layout_width="154dp"
+                android:layout_height="122dp"
                 android:adjustViewBounds="true"
+                android:background="@drawable/circle_custom"
                 android:contentDescription=" "
                 android:padding="1dp"
-                android:background="@drawable/circle_custom"
                 android:scaleType="centerInside"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.913"
-                app:srcCompat="@drawable/coinbt" />
+                app:layout_constraintVertical_bias="0.963"
+                app:srcCompat="@drawable/coinbtmensaje" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

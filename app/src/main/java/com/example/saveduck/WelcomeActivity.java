@@ -45,11 +45,9 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         }, 2000);
 
-        // Con este objeto guardaremos un sonido descargado
-        MediaPlayer mp = MediaPlayer.create(this, R.raw.quack);
-
-        // Al abrir la App lo primero que se hará será escuchar el sonido
-        mp.start();
+        // Invocamos el método para reproducir el sonido,
+        // al abrir la App lo primero que se hará será escuchar el sonido
+        sonidoQuach();
 
     }
 
@@ -57,5 +55,14 @@ public class WelcomeActivity extends AppCompatActivity {
     public void openMain(Intent intent) {
         intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    // Función que reproduce un sonido al abrir la App
+    public void sonidoQuach(){
+        // Con este objeto guardaremos un sonido descargado
+        MediaPlayer mp = MediaPlayer.create(this, R.raw.quack);
+
+        // Reproducimos el audio descargado
+        mp.start();
     }
 }
