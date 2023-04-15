@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.example.saveduck.databinding.ActivityMainBinding;
 
@@ -26,7 +24,7 @@ public class WelcomeActivity extends AppCompatActivity {
         // En este objeto de tipo intent guardaremos la dirección a la página principal de la App.
         // Lo utilizaremos con otro método para indicarle al programa que nos queremos mover
         // hasta allí
-        Intent intent = new Intent(this, Add_money_activity.class);
+        Intent intent = new Intent(this, AddMoneyActivity.class);
 
         // Este objeto tipo Timer va a funcionar como un sleep, le daremos la duración que
         // queremos que dure la pantalla de bienvenida o splash
@@ -37,7 +35,7 @@ public class WelcomeActivity extends AppCompatActivity {
             @Override
             public void run() {
                 // Invocamos el método para abrir el MainActivity
-                openMain(intent);
+                openCreate(intent);
 
                 // Con finish impedimos que podamos volver a esta pantalla. Solo podremos volver a
                 // verla si cerramos la App y volvemos a entrar
@@ -47,18 +45,18 @@ public class WelcomeActivity extends AppCompatActivity {
 
         // Invocamos el método para reproducir el sonido,
         // al abrir la App lo primero que se hará será escuchar el sonido
-        sonidoQuach();
+        sonidoQuack();
 
     }
 
-    // Función que abre el MainActivity
-    public void openMain(Intent intent) {
-        intent = new Intent(this, MainActivity.class);
+    // Función que abre el CreateAccount
+    public void openCreate(Intent intent) {
+        intent = new Intent(this, CreateAccountActivity.class);
         startActivity(intent);
     }
 
     // Función que reproduce un sonido al abrir la App
-    public void sonidoQuach(){
+    public void sonidoQuack(){
         // Con este objeto guardaremos un sonido descargado
         MediaPlayer mp = MediaPlayer.create(this, R.raw.quack);
 

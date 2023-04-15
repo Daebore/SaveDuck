@@ -10,11 +10,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/grey"
-        tools:context=".AddMoneyActivity">
+        tools:context=".SpentMoneyActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout5"
+            android:id="@+id/constraintLayout6"
             android:layout_width="373dp"
             android:layout_height="566dp"
             android:layout_marginTop="16dp"
@@ -27,51 +26,51 @@
             app:layout_constraintVertical_bias="0.374">
 
             <ImageView
-                android:id="@+id/fotoAddPig"
+                android:id="@+id/fotoWastePig"
                 android:layout_width="224dp"
                 android:layout_height="191dp"
                 android:layout_marginTop="4dp"
-                android:src="@drawable/add_pig"
+                android:src="@drawable/waste_pig"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.496"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textoAnadirIngresos"
+                android:id="@+id/textoAnadirGastos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:fontFamily="sans-serif"
-                android:text="Añadir ingresos"
+                android:text="Añadir gastos"
                 android:textColor="@color/black"
                 android:textSize="35sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.504"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fotoAddPig" />
+                app:layout_constraintTop_toBottomOf="@+id/fotoWastePig" />
 
             <EditText
-                android:id="@+id/etIngresos"
+                android:id="@+id/etGastos"
                 android:layout_width="341dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="32dp"
                 android:drawableLeft="@drawable/ic_euro"
-                android:hint="Ingresos"
+                android:hint="Gastos"
                 android:inputType="numberDecimal"
                 android:textColor="@color/black"
                 android:textSize="21sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.516"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textoAnadirIngresos"
+                app:layout_constraintTop_toBottomOf="@+id/textoAnadirGastos"
                 app:srcCompat="@drawable/logosf" />
 
             <EditText
-                android:id="@+id/etConceptoIng"
+                android:id="@+id/etConceptoGas"
                 android:layout_width="341dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -84,11 +83,11 @@
                 android:textSize="21sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textoAnadirIngresos"
+                app:layout_constraintTop_toBottomOf="@+id/textoAnadirGastos"
                 app:srcCompat="@drawable/logosf" />
 
             <ImageButton
-                android:id="@+id/botonIngresos"
+                android:id="@+id/botonGastos"
                 android:layout_width="154dp"
                 android:layout_height="122dp"
                 android:adjustViewBounds="true"

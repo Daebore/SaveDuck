@@ -12,17 +12,29 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Implementamos DataBinding
         ActivityMainBinding mainBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(mainBinding.getRoot());
 
         mainBinding.botonIngresos.setOnClickListener(v -> {
             openIngresos();
         });
+
+        mainBinding.botonGastos.setOnClickListener(v -> {
+            openGastos();
+        });
     }
 
-    // Función que abre el MainActivity
+    // Función que abre el AddMoneyActivity
     public void openIngresos() {
-        Intent intent = new Intent(this, Add_money_activity.class);
+        Intent intent = new Intent(this, AddMoneyActivity.class);
+        startActivity(intent);
+    }
+
+    // Función que abre el SpentMoneyActivity
+    public void openGastos() {
+        Intent intent = new Intent(this, SpentMoneyActivity.class);
         startActivity(intent);
     }
 }
