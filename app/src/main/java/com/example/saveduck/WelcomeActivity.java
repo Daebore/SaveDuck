@@ -23,11 +23,10 @@ public class WelcomeActivity extends AppCompatActivity {
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_welcome);
 
-
         // En este objeto de tipo intent guardaremos la dirección a la página principal de la App.
         // Lo utilizaremos con otro método para indicarle al programa que nos queremos mover
         // hasta allí
-        Intent intent = new Intent(this, CreateAccountActivity.class);
+        Intent intent = new Intent(this, Add_money_activity.class);
 
         // Este objeto tipo Timer va a funcionar como un sleep, le daremos la duración que
         // queremos que dure la pantalla de bienvenida o splash
@@ -37,7 +36,8 @@ public class WelcomeActivity extends AppCompatActivity {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                startActivity(intent);
+                // Invocamos el método para abrir el MainActivity
+                openMain(intent);
 
                 // Con finish impedimos que podamos volver a esta pantalla. Solo podremos volver a
                 // verla si cerramos la App y volvemos a entrar
@@ -51,5 +51,11 @@ public class WelcomeActivity extends AppCompatActivity {
         // Al abrir la App lo primero que se hará será escuchar el sonido
         mp.start();
 
+    }
+
+    // Función que abre el MainActivity
+    public void openMain(Intent intent) {
+        intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }
