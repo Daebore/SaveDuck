@@ -2,6 +2,7 @@ package com.example.saveduck;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -18,8 +19,14 @@ public class SpentMoneyActivity extends AppCompatActivity {
         ActivitySpentMoneyBinding spentBinding = ActivitySpentMoneyBinding.inflate(getLayoutInflater());
         setContentView(spentBinding.getRoot());
 
+        // Si pulsamos el botonGastos, invocamos al método que reproduce el audio
         spentBinding.botonGastos.setOnClickListener(v -> {
             sonidoSonicRings();
+        });
+
+        // Si pulsamos el botonHome (footer) volvemos al MainActivity
+        spentBinding.botonHome.setOnClickListener(v -> {
+            openMain();
         });
     }
 
@@ -30,5 +37,11 @@ public class SpentMoneyActivity extends AppCompatActivity {
 
         // Reproducimos el audio descargado
         mp.start();
+    }
+
+    // Función que abre el Main
+    public void openMain() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

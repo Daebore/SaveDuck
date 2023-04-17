@@ -10,6 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/grey"
         tools:context=".SpentMoneyActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -106,22 +107,30 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
-            android:id="@+id/buttonHome"
-            android:layout_width="74dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center"
+            android:id="@+id/botonHome"
+            android:layout_width="62dp"
+            android:layout_height="58dp"
             android:background="@drawable/circle_custom2"
             android:contentDescription=" "
             android:drawableLeft="@drawable/ic_home2"
             android:gravity="center"
-            android:paddingLeft="12.5dp"
-            android:text=" "
+            android:outlineAmbientShadowColor="@android:color/transparent"
+            android:outlineSpotShadowColor="@android:color/transparent"
+            android:paddingLeft="6.5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.997" />
+
+        <LinearLayout
+            android:layout_width="406dp"
+            android:layout_height="35dp"
+            android:background="@drawable/custom_layout2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"></LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
