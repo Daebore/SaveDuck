@@ -23,7 +23,6 @@ public class BackgroundActivity extends AppCompatActivity {
         backBinding.botonHome.setOnClickListener(v -> {
             openMain();
         });
-
     }
 
     // Función que abre el Main

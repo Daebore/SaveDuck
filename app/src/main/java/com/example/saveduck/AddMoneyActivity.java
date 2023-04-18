@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.example.saveduck.databinding.ActivityAddMoneyBinding;
 
@@ -22,6 +24,11 @@ public class AddMoneyActivity extends AppCompatActivity {
         // Si pulsamos el botonIngresos, invocamos al método que reproduce el audio
         addBinding.botonIngresos.setOnClickListener(v -> {
             sonidoMonedaMario();
+
+            // Este log nos sirve para debuggear. Además, añadimos un toast para mostrar al usuario
+            // un mensaje indicándole que el registro se ha realizado correctamente
+            Log.d("Quest_view", "Ingreso registrado");
+            AppToast.showMessage(this, "Ingreso registrado", Toast.LENGTH_SHORT);
         });
 
         // Si pulsamos el botonHome (footer) volvemos al MainActivity
