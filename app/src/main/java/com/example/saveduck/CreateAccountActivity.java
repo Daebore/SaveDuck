@@ -1,17 +1,21 @@
 package com.example.saveduck;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.saveduck.dataBase.SaveDataBase;
+import com.example.saveduck.dataBase.User;
+import com.example.saveduck.dataBase.UserDao;
 import com.example.saveduck.databinding.ActivityCreateAccountBinding;
-import com.example.saveduck.databinding.ActivityMainBinding;
 
 public class CreateAccountActivity extends AppCompatActivity {
+
+    public SaveDataBase bd;
+    UserDao userDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,13 +25,14 @@ public class CreateAccountActivity extends AppCompatActivity {
         ActivityCreateAccountBinding createBinding = ActivityCreateAccountBinding.inflate(getLayoutInflater());
         setContentView(createBinding.getRoot());
 
+
         // Si pulsamos en el botonRegistrar, creamos una cuenta y guardamos los datos en la BBDD
         createBinding.botonRegistrar.setOnClickListener(v -> {
 
             String nombre = createBinding.etNombreUsuario.getText().toString();
             String correo = createBinding.etCorreo.getText().toString();
             String ingresosIniString = createBinding.etIngresosIni.getText().toString();
-            //int ingresosIniInt = Integer.parseInt(ingresosIniString);
+            int ingresosIniInt = Integer.parseInt(ingresosIniString);
 
             if(nombre.isEmpty() && correo.isEmpty()){
                 // Este log nos sirve para debuggear. Además, utilizamos una instancia de la clase
@@ -56,12 +61,18 @@ public class CreateAccountActivity extends AppCompatActivity {
                 Log.d("Quest_view", "La cuenta ha sido creada");
                 AppToast.showMessage(this, "La cuenta ha sido creada", Toast.LENGTH_SHORT);
 
+                guardarEnBD(nombre, correo, ingresosIniInt);
+
                 // Si todos los campos obligatorios han sido rellenados, invocamos el método que nos
                 // lleva al MainActivity
                 openMain();
             }
 
         });
+    }
+
+    public void guardarEnBD(String nombre, String correo, double ingresosIniInt) {
+        userDao.insertAll(new User(nombre, correo, ingresosIniInt));
     }
 
     // Función que abre el MainActivity
