@@ -1,22 +1,32 @@
 package com.example.saveduck;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.saveduck.dataBase.SaveDataBase;
+import com.example.saveduck.dataBase.User;
+import com.example.saveduck.dataBase.UserDao;
 import com.example.saveduck.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
+
+    public SaveDataBase bd;
+    UserDao userDao;
+    ActivityMainBinding mainBinding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         // Implementamos DataBinding
-        ActivityMainBinding mainBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        mainBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(mainBinding.getRoot());
+
+        recogerDatosBD();
+
 
         // Si pulsamos el botonIngresos, invocamos el método que abre el AddMoneyActivity
         mainBinding.botonIngresos.setOnClickListener(v -> {
@@ -32,6 +42,21 @@ public class MainActivity extends AppCompatActivity {
         mainBinding.botonHistorial.setOnClickListener(v -> {
             openHistorial();
         });
+    }
+
+    public void recogerDatosBD() {
+        // Obtener objetos BD.
+        bd = SaveDataBase.getDatabase(getApplicationContext());
+        userDao = bd.userDao();
+
+        // Sacar datos del usuario y calcular IMC.
+        User user = userDao.getAll().get(0);
+
+        // Mostrar los datos en sus respectivos campos.
+        mainBinding.textoSaludoMain.setText(mainBinding.textoSaludoMain.getText() + " " + user.nombre);
+
+        mainBinding.textoIngresosDinero.setText(String.valueOf(user.ingresosIni));
+
     }
 
     // Función que abre el AddMoneyActivity

@@ -25,6 +25,8 @@ public class CreateAccountActivity extends AppCompatActivity {
         ActivityCreateAccountBinding createBinding = ActivityCreateAccountBinding.inflate(getLayoutInflater());
         setContentView(createBinding.getRoot());
 
+        bd = SaveDataBase.getDatabase(getApplicationContext());
+        userDao = bd.userDao();
 
         // Si pulsamos en el botonRegistrar, creamos una cuenta y guardamos los datos en la BBDD
         createBinding.botonRegistrar.setOnClickListener(v -> {
@@ -32,7 +34,13 @@ public class CreateAccountActivity extends AppCompatActivity {
             String nombre = createBinding.etNombreUsuario.getText().toString();
             String correo = createBinding.etCorreo.getText().toString();
             String ingresosIniString = createBinding.etIngresosIni.getText().toString();
-            int ingresosIniInt = Integer.parseInt(ingresosIniString);
+            int ingresosIniInt;
+
+            if(createBinding.etIngresosIni.getText().toString().isEmpty()){
+                ingresosIniInt = 0;
+            }else{
+                ingresosIniInt = Integer.parseInt(ingresosIniString);
+            }
 
             if(nombre.isEmpty() && correo.isEmpty()){
                 // Este log nos sirve para debuggear. Además, utilizamos una instancia de la clase

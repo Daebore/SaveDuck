@@ -8,7 +8,7 @@ public class User {
     @PrimaryKey
     @NonNull
     public String nombre;
-
+    @NonNull
     public String correo;
 
     public double ingresosIni;
