@@ -12,9 +12,9 @@ import com.example.saveduck.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
-    public SaveDataBase bd;
-    UserDao userDao;
-    ActivityMainBinding mainBinding;
+    public SaveDataBase BD;
+    UserDao UserDao;
+    ActivityMainBinding MainBinding;
 
 
     @Override
@@ -22,40 +22,39 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // Implementamos DataBinding
-        mainBinding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(mainBinding.getRoot());
+        MainBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(MainBinding.getRoot());
 
         recogerDatosBD();
 
 
         // Si pulsamos el botonIngresos, invocamos el método que abre el AddMoneyActivity
-        mainBinding.botonIngresos.setOnClickListener(v -> {
+        MainBinding.botonIngresos.setOnClickListener(v -> {
             openIngresos();
         });
 
         // Si pulsamos el botonGastos, invocamos el método que abre el SpentMoneyActivity
-        mainBinding.botonGastos.setOnClickListener(v -> {
+        MainBinding.botonGastos.setOnClickListener(v -> {
             openGastos();
         });
 
         // Si pulsamos el botonHome (footer) volvemos al MainActivity
-        mainBinding.botonHistorial.setOnClickListener(v -> {
+        MainBinding.botonHistorial.setOnClickListener(v -> {
             openHistorial();
         });
     }
 
     public void recogerDatosBD() {
         // Obtener objetos BD.
-        bd = SaveDataBase.getDatabase(getApplicationContext());
-        userDao = bd.userDao();
+        BD = SaveDataBase.getDatabase(getApplicationContext());
+        UserDao = BD.userDao();
 
-        // Sacar datos del usuario y calcular IMC.
-        User user = userDao.getAll().get(0);
+        User user = UserDao.getAll().get(0);
 
         // Mostrar los datos en sus respectivos campos.
-        mainBinding.textoSaludoMain.setText(mainBinding.textoSaludoMain.getText() + " " + user.nombre);
+        MainBinding.textoSaludoMain.setText(MainBinding.textoSaludoMain.getText() + " " + user.nombre);
 
-        mainBinding.textoIngresosDinero.setText(String.valueOf(user.ingresosIni));
+        MainBinding.textoIngresosDinero.setText(String.valueOf(user.ingresosIni));
 
     }
 
