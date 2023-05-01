@@ -19,6 +19,8 @@ public class Income {
 
     public double ingresoDinero;
 
+    public String conceptoIngreso;
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     public LocalDateTime getFechaIngreso(ZoneOffset zoffset){
         return LocalDateTime.ofEpochSecond(fechaIngreso, 0, zoffset);
@@ -28,9 +30,10 @@ public class Income {
         super();
     }
 
-    public Income(@NonNull long fechaIngreso, double ingresoDinero) {
+    public Income(@NonNull long fechaIngreso, double ingresoDinero, String conceptoIngreso) {
         this.fechaIngreso = fechaIngreso;
         this.ingresoDinero = ingresoDinero;
+        this.conceptoIngreso = conceptoIngreso;
     }
 
 }

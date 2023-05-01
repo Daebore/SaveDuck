@@ -2,6 +2,7 @@ package com.example.saveduck;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -13,13 +14,15 @@ import com.example.saveduck.dataBase.IncomeDao;
 import com.example.saveduck.dataBase.SaveDataBase;
 import com.example.saveduck.databinding.ActivityAddMoneyBinding;
 
+import java.time.Instant;
+
 
 public class AddMoneyActivity extends AppCompatActivity {
 
-    public SaveDataBase BD;
+    public SaveDataBase bd;
 
-    IncomeDao IncomeDao;
-    ActivityAddMoneyBinding AddBinding;
+    IncomeDao incomeDao;
+    ActivityAddMoneyBinding addBinding;
 
 
     @Override
@@ -27,27 +30,39 @@ public class AddMoneyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // Implementamos DataBinding
-        AddBinding = ActivityAddMoneyBinding.inflate(getLayoutInflater());
-        setContentView(AddBinding.getRoot());
+        addBinding = ActivityAddMoneyBinding.inflate(getLayoutInflater());
+        setContentView(addBinding.getRoot());
 
         // Si pulsamos el botonIngresos, invocamos al método que reproduce el audio
-        AddBinding.botonIngresos.setOnClickListener(v -> {
+        addBinding.botonIngresos.setOnClickListener(v -> {
             sonidoMonedaMario();
+
+            String ingresoDinero = addBinding.etIngresos.getText().toString();
+            String conceptoIngreso = addBinding.etConceptoIng.getText().toString();
+            double ingresosDouble = Double.parseDouble(ingresoDinero);
+
+            guardarEnBD(ingresosDouble, conceptoIngreso);
 
             // Este log nos sirve para debuggear. Además, añadimos un toast para mostrar al usuario
             // un mensaje indicándole que el registro se ha realizado correctamente
             Log.d("Quest_view", "Ingreso registrado");
             AppToast.showMessage(this, "Ingreso registrado", Toast.LENGTH_SHORT);
+
+            openMain();
         });
 
         // Si pulsamos el botonHome (footer) volvemos al MainActivity
-        AddBinding.botonHome.setOnClickListener(v -> {
+        addBinding.botonHome.setOnClickListener(v -> {
             openMain();
         });
     }
 
-    public void guardarEnBD(long fechaIngreso, double ingresoDinero) {
-        IncomeDao.insertAll(new Income(fechaIngreso, ingresoDinero));
+    public void guardarEnBD(double ingresosDouble, String conceptoIngreso) {
+        bd = SaveDataBase.getDatabase(getApplicationContext());
+        incomeDao = bd.incomeDao();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            incomeDao.insertAll(new Income(Instant.now().getEpochSecond(), ingresosDouble, conceptoIngreso));
+        }
     }
 
     // Función que reproduce un sonido

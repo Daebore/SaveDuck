@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.saveduck.dataBase.Income;
+import com.example.saveduck.dataBase.IncomeDao;
 import com.example.saveduck.dataBase.SaveDataBase;
 import com.example.saveduck.dataBase.User;
 import com.example.saveduck.dataBase.UserDao;
@@ -12,9 +14,12 @@ import com.example.saveduck.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
-    public SaveDataBase BD;
-    UserDao UserDao;
-    ActivityMainBinding MainBinding;
+    public SaveDataBase bd;
+
+    UserDao userDao;
+
+    IncomeDao incomeDao;
+    ActivityMainBinding mainBinding;
 
 
     @Override
@@ -22,39 +27,53 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // Implementamos DataBinding
-        MainBinding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(MainBinding.getRoot());
+        mainBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(mainBinding.getRoot());
 
         recogerDatosBD();
 
 
         // Si pulsamos el botonIngresos, invocamos el método que abre el AddMoneyActivity
-        MainBinding.botonIngresos.setOnClickListener(v -> {
+        mainBinding.botonIngresos.setOnClickListener(v -> {
             openIngresos();
         });
 
         // Si pulsamos el botonGastos, invocamos el método que abre el SpentMoneyActivity
-        MainBinding.botonGastos.setOnClickListener(v -> {
+        mainBinding.botonGastos.setOnClickListener(v -> {
             openGastos();
         });
 
         // Si pulsamos el botonHome (footer) volvemos al MainActivity
-        MainBinding.botonHistorial.setOnClickListener(v -> {
+        mainBinding.botonHistorial.setOnClickListener(v -> {
             openHistorial();
         });
     }
 
     public void recogerDatosBD() {
         // Obtener objetos BD.
-        BD = SaveDataBase.getDatabase(getApplicationContext());
-        UserDao = BD.userDao();
+        bd = SaveDataBase.getDatabase(getApplicationContext());
+        userDao = bd.userDao();
 
-        User user = UserDao.getAll().get(0);
+        incomeDao = bd.incomeDao();
+
+        User user = userDao.getAll().get(0);
+        double ultima;
+        if(incomeDao.getLatest() == null){
+            ultima = 0;
+        }else{
+            Income income = incomeDao.getLatest();
+            ultima = income.ingresoDinero;
+        }
+        //Income income = incomeDao.getLatest();
+
+        double dineroIni = user.ingresosIni;
+
+        double pasta = dineroIni + ultima;
 
         // Mostrar los datos en sus respectivos campos.
-        MainBinding.textoSaludoMain.setText(MainBinding.textoSaludoMain.getText() + " " + user.nombre);
+        mainBinding.textoSaludoMain.setText(mainBinding.textoSaludoMain.getText() + " " + user.nombre);
 
-        MainBinding.textoIngresosDinero.setText(String.valueOf(user.ingresosIni));
+        mainBinding.textoIngresosDinero.setText(String.valueOf(pasta));
 
     }
 
