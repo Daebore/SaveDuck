@@ -41,15 +41,17 @@ public class AddMoneyActivity extends AppCompatActivity {
 
         // Si pulsamos el botonIngresos, invocamos al método que reproduce el audio
         addBinding.botonIngresos.setOnClickListener(v -> {
-            sonidoMonedaMario();
 
             // Cogemos todos los datos de sus respectivos campos de texto y las guardamos en variables
             String ingresoDinero = addBinding.etIngresos.getText().toString();
             String conceptoIngreso = addBinding.etConceptoIng.getText().toString();
 
             if(ingresoDinero.isEmpty()){
-                AppToast.showMessage(this, "No puede estar vacío", Toast.LENGTH_SHORT);
+                Log.d("Add_view", "El campo Ingresos no puede estar vacío");
+                AppToast.showMessage(this, "El campo Ingresos no puede estar vacío", Toast.LENGTH_SHORT);
             }else{
+
+                sonidoMonedaMario();
                 // Casteamos los ingresos a double
                 double ingresosDouble = Double.parseDouble(ingresoDinero);
 
@@ -59,7 +61,7 @@ public class AddMoneyActivity extends AppCompatActivity {
 
                 // Este log nos sirve para debuggear. Además, añadimos un toast para mostrar al usuario
                 // un mensaje indicándole que el registro se ha realizado correctamente
-                Log.d("Quest_view", "Ingreso registrado");
+                Log.d("Add_view", "Ingreso registrado");
                 AppToast.showMessage(this, "Ingreso registrado", Toast.LENGTH_SHORT);
 
                 // Una vez realizado el ingreso, volvemos al MainActivity (aparte de por diseño, se hace

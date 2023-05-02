@@ -48,27 +48,27 @@ public class CreateAccountActivity extends AppCompatActivity {
                 // Este log nos sirve para debuggear. Además, utilizamos una instancia de la clase
                 // AppToast que nos va a permitir mostrar invocar el método showMessage que va a
                 // permitirnos mostrar mensaje al usuario por pantalla
-                Log.d("Quest_view", "Los campos Nombre y Dirección de correo no pueden estar vacíos");
+                Log.d("Create_view", "Los campos Nombre y Dirección de correo no pueden estar vacíos");
                 AppToast.showMessage(this, "Los campos Nombre y Dirección de correo no pueden estar vacíos", Toast.LENGTH_SHORT);
 
             }else if(nombre.isEmpty()){
                 // Si solo el nombre está vacío mostramos el mensaje correspondiente
-                Log.d("Quest_view", "El campo Nombre no puede estar vacío");
+                Log.d("Create_view", "El campo Nombre no puede estar vacío");
                 AppToast.showMessage(this, "El campo Nombre no puede estar vacío", Toast.LENGTH_SHORT);
 
             }else if(correo.isEmpty()){
                 // Si solo el correo está vacío mostramos el mensaje correspondiente
-                Log.d("Quest_view", "El campo Nombre no puede estar vacío");
+                Log.d("Create_view", "El campo Nombre no puede estar vacío");
                 AppToast.showMessage(this, "El campo Dirección de correo no puede estar vacío", Toast.LENGTH_SHORT);
 
             }else if(!createBinding.checkBoxAceptar.isChecked()){
                 // Si el el checkBox está vacía mostramos el mensaje correspondiente
-                Log.d("Quest_view", "Debes aceptar los términos y condiciones de privacidad");
+                Log.d("Create_view", "Debes aceptar los términos y condiciones de privacidad");
                 AppToast.showMessage(this, "Debes aceptar los términos y condiciones de privacidad", Toast.LENGTH_SHORT);
 
             }else{
                 // Mostramos un mensaje indicando que la cuenta se ha creado correctamente
-                Log.d("Quest_view", "La cuenta ha sido creada");
+                Log.d("Create_view", "La cuenta ha sido creada");
                 AppToast.showMessage(this, "La cuenta ha sido creada", Toast.LENGTH_SHORT);
 
                 guardarEnBD(nombre, correo, ingresosDouble);

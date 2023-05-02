@@ -4,6 +4,8 @@ import androidx.room.*;
 
 import java.util.List;
 
+
+// Esta clase interfaz va a servir para guardar las operaciones CRUD asignadas a la tabla Income de la BBDD
 @Dao
 public interface IncomeDao {
     @Query("SELECT * FROM Income")
