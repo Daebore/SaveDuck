@@ -22,10 +22,6 @@ public class MainActivity extends AppCompatActivity {
 
     UserDao userDao;
 
-    IncomeDao incomeDao;
-
-    ExpenseDao expenseDao;
-
     ActivityMainBinding mainBinding;
 
 
@@ -60,44 +56,52 @@ public class MainActivity extends AppCompatActivity {
         // Obtener objetos BD.
         bd = SaveDataBase.getDatabase(getApplicationContext());
         userDao = bd.userDao();
-        incomeDao = bd.incomeDao();
-        expenseDao = bd.expenseDao();
 
         User user = userDao.getAll().get(0);
-        Expense expense = expenseDao.getLatest();
-        Income income = incomeDao.getLatest();
 
         // Mostrar los datos en sus respectivos campos.
         mainBinding.textoSaludoMain.setText(mainBinding.textoSaludoMain.getText() + " " + user.nombre);
 
+        mainBinding.textoIngresosDinero.setText(String.valueOf(calcularIngresos()));
+
+        mainBinding.textoGastosDinero.setText(String.valueOf(calcularGastos()));
+
+        mainBinding.textoBlance.setText(String.valueOf(user.ingresos));
+
+    }
+
+    public double calcularIngresos(){
+        IncomeDao incomeDao = bd.incomeDao();
+        Income income = incomeDao.getLatest();
+
+        double totalIngresos = 0;
         if(income == null){
-            mainBinding.textoIngresosDinero.setText(String.valueOf(0));
+            mainBinding.textoIngresosDinero.setText(String.valueOf(totalIngresos));
         }else{
             ArrayList<Income> listaIngresos = (ArrayList<Income>) incomeDao.getAll();
-            double totalIngresos = 0;
 
             for (int i = 0; i < listaIngresos.size(); i++) {
                 totalIngresos += listaIngresos.get(i).ingresoDinero;
             }
-            mainBinding.textoIngresosDinero.setText(String.valueOf(totalIngresos));
         }
+        return totalIngresos;
+    }
 
+    public double calcularGastos(){
+        ExpenseDao expenseDao = bd.expenseDao();
+        Expense expense = expenseDao.getLatest();
 
+        double totalGastos = 0;
         if(expense == null){
-            mainBinding.textoGastosDinero.setText(String.valueOf(0));
+            mainBinding.textoGastosDinero.setText(String.valueOf(totalGastos));
         }else{
             ArrayList<Expense> listaGastos = (ArrayList<Expense>) expenseDao.getAll();
-            double totalGastos = 0;
 
             for (int i = 0; i < listaGastos.size(); i++) {
                 totalGastos += listaGastos.get(i).gastoDinero;
             }
-
-            mainBinding.textoGastosDinero.setText(String.valueOf(totalGastos));
         }
-
-        mainBinding.textoBlance.setText(String.valueOf(user.ingresos));
-
+        return totalGastos;
     }
 
     // Función que abre el AddMoneyActivity
