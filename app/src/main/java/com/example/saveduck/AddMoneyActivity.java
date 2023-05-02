@@ -64,7 +64,7 @@ public class AddMoneyActivity extends AppCompatActivity {
                 Log.d("Add_view", "Ingreso registrado");
                 AppToast.showMessage(this, "Ingreso registrado", Toast.LENGTH_SHORT);
 
-                // Una vez realizado el ingreso, volvemos al MainActivity (aparte de por diseño, se hace
+                // Una vez registrado el ingreso, volvemos al MainActivity (aparte de por diseño, se hace
                 // para evitar errores con la bbdd por si el usuario decide pulsar varias veces seguidas
                 // el botón de añadir ingresos)
                 openMain();
@@ -90,7 +90,7 @@ public class AddMoneyActivity extends AppCompatActivity {
         // Actualizamos el campo de ingresos de la tabla User
         userDao.update(ingresosDouble);
 
-        // Inicializamos el objeto de tipo incomeDao (nos va a permitir acceder a los métodos de la
+        // Inicializamos el objeto de tipo IncomeDao (nos va a permitir acceder a los métodos de la
         // tabla Income que nos permitirá realizar las funcinoes CRUD)
         incomeDao = bd.incomeDao();
 

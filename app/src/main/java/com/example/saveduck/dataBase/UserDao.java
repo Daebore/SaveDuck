@@ -20,6 +20,9 @@ public interface UserDao {
     @Query("UPDATE user SET ingresos = :price + ingresos")
     void update(double price);
 
+    @Query("UPDATE user SET ingresos = ingresos - :gastos")
+    void updateExpense(double gastos);
+
     @Insert
     void insertAll(User... users);
 
