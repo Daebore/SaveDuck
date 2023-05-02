@@ -191,7 +191,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="52dp"
                         android:layout_marginBottom="16dp"
-                        android:text="Ahorros"
+                        android:text="Balance"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold"
@@ -201,7 +201,7 @@
                         app:layout_constraintStart_toStartOf="@+id/fotoAhorros" />
 
                     <TextView
-                        android:id="@+id/textoAhorrarDinero"
+                        android:id="@+id/textoBlance"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="270dp"

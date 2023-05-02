@@ -5,16 +5,26 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.saveduck.dataBase.Expense;
+import com.example.saveduck.dataBase.ExpenseDao;
+import com.example.saveduck.dataBase.Income;
+import com.example.saveduck.dataBase.IncomeDao;
 import com.example.saveduck.dataBase.SaveDataBase;
 import com.example.saveduck.dataBase.User;
 import com.example.saveduck.dataBase.UserDao;
 import com.example.saveduck.databinding.ActivityMainBinding;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     public SaveDataBase bd;
 
     UserDao userDao;
+
+    IncomeDao incomeDao;
+
+    ExpenseDao expenseDao;
 
     ActivityMainBinding mainBinding;
 
@@ -50,13 +60,43 @@ public class MainActivity extends AppCompatActivity {
         // Obtener objetos BD.
         bd = SaveDataBase.getDatabase(getApplicationContext());
         userDao = bd.userDao();
+        incomeDao = bd.incomeDao();
+        expenseDao = bd.expenseDao();
 
         User user = userDao.getAll().get(0);
+        Expense expense = expenseDao.getLatest();
+        Income income = incomeDao.getLatest();
 
         // Mostrar los datos en sus respectivos campos.
         mainBinding.textoSaludoMain.setText(mainBinding.textoSaludoMain.getText() + " " + user.nombre);
 
-        mainBinding.textoIngresosDinero.setText(String.valueOf(user.ingresos));
+        if(income == null){
+            mainBinding.textoIngresosDinero.setText(String.valueOf(0));
+        }else{
+            ArrayList<Income> listaIngresos = (ArrayList<Income>) incomeDao.getAll();
+            double totalIngresos = 0;
+
+            for (int i = 0; i < listaIngresos.size(); i++) {
+                totalIngresos += listaIngresos.get(i).ingresoDinero;
+            }
+            mainBinding.textoIngresosDinero.setText(String.valueOf(totalIngresos));
+        }
+
+
+        if(expense == null){
+            mainBinding.textoGastosDinero.setText(String.valueOf(0));
+        }else{
+            ArrayList<Expense> listaGastos = (ArrayList<Expense>) expenseDao.getAll();
+            double totalGastos = 0;
+
+            for (int i = 0; i < listaGastos.size(); i++) {
+                totalGastos += listaGastos.get(i).gastoDinero;
+            }
+
+            mainBinding.textoGastosDinero.setText(String.valueOf(totalGastos));
+        }
+
+        mainBinding.textoBlance.setText(String.valueOf(user.ingresos));
 
     }
 
