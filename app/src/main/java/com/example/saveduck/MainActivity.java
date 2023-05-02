@@ -57,20 +57,6 @@ public class MainActivity extends AppCompatActivity {
 
         User user = userDao.getAll().get(0);
 
-        /*
-        double ultima;
-        if(incomeDao.getLatest() == null){
-            ultima = 0;
-        }else{
-            Income income = incomeDao.getLatest();
-            ultima = income.ingresoDinero;
-        }
-        //Income income = incomeDao.getLatest();
-
-        double dineroIni = user.ingresosIni;
-
-        double pasta = dineroIni + ultima;
-*/
         // Mostrar los datos en sus respectivos campos.
         mainBinding.textoSaludoMain.setText(mainBinding.textoSaludoMain.getText() + " " + user.nombre);
 
