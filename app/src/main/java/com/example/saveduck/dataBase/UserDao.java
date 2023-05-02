@@ -15,7 +15,7 @@ public interface UserDao {
     @Query("SELECT * FROM user WHERE nombre=:name")
     User findByName(String name);
 
-    @Query("UPDATE user SET ingresosIni = :price + ingresosIni")
+    @Query("UPDATE user SET ingresos = :price + ingresos")
     void update(double price);
 
     @Insert

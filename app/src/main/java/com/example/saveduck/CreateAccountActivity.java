@@ -14,6 +14,7 @@ import com.example.saveduck.databinding.ActivityCreateAccountBinding;
 
 public class CreateAccountActivity extends AppCompatActivity {
 
+    // Instanciamos un objeto de la clase de la BBDD y 1 objeto de la tabla User
     public SaveDataBase bd;
     UserDao userDao;
 
@@ -25,21 +26,22 @@ public class CreateAccountActivity extends AppCompatActivity {
         ActivityCreateAccountBinding createBinding = ActivityCreateAccountBinding.inflate(getLayoutInflater());
         setContentView(createBinding.getRoot());
 
-        bd = SaveDataBase.getDatabase(getApplicationContext());
-        userDao = bd.userDao();
-
         // Si pulsamos en el botonRegistrar, creamos una cuenta y guardamos los datos en la BBDD
         createBinding.botonRegistrar.setOnClickListener(v -> {
 
+            // Cogemos todos los datos de sus respectivos campos de texto y las guardamos en variables
             String nombre = createBinding.etNombreUsuario.getText().toString();
             String correo = createBinding.etCorreo.getText().toString();
-            String ingresosIniString = createBinding.etIngresosIni.getText().toString();
-            int ingresosIniInt;
+            String ingresosString = createBinding.etIngresosIni.getText().toString();
+            double ingresosDouble;
 
+            // EL usuario puede no tener ingresos iniciales al instalar la App, sin embargo, el campo
+            // de la tabla no debe estar nulo para evitar problemas, así que si el usuario no ha indicado
+            // ingresos iniciales, los inicializamos a 0
             if(createBinding.etIngresosIni.getText().toString().isEmpty()){
-                ingresosIniInt = 0;
+                ingresosDouble = 0;
             }else{
-                ingresosIniInt = Integer.parseInt(ingresosIniString);
+                ingresosDouble = Double.parseDouble(ingresosString);
             }
 
             if(nombre.isEmpty() && correo.isEmpty()){
@@ -69,7 +71,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                 Log.d("Quest_view", "La cuenta ha sido creada");
                 AppToast.showMessage(this, "La cuenta ha sido creada", Toast.LENGTH_SHORT);
 
-                guardarEnBD(nombre, correo, ingresosIniInt);
+                guardarEnBD(nombre, correo, ingresosDouble);
 
                 // Si todos los campos obligatorios han sido rellenados, invocamos el método que nos
                 // lleva al MainActivity
@@ -79,8 +81,14 @@ public class CreateAccountActivity extends AppCompatActivity {
         });
     }
 
-    public void guardarEnBD(String nombre, String correo, double ingresosIniInt) {
-        userDao.insertAll(new User(nombre, correo, ingresosIniInt));
+    public void guardarEnBD(String nombre, String correo, double ingresos) {
+        // Inicializamos el objeto de la BBDD y el userDao (el cual nos va a permitir realizar
+        // las funciones CRUD)
+        bd = SaveDataBase.getDatabase(getApplicationContext());
+        userDao = bd.userDao();
+
+        // Insertamos el nuevo usuario en la tabla User
+        userDao.insertAll(new User(nombre, correo, ingresos));
     }
 
     // Función que abre el MainActivity

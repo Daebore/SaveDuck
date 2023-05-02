@@ -11,15 +11,15 @@ public class User {
     @NonNull
     public String correo;
 
-    public double ingresosIni;
+    public double ingresos;
 
     public User() {
         super();
     }
 
-    public User(@NonNull String nombre, String correo, double ingresosIni) {
+    public User(@NonNull String nombre, String correo, double ingresos) {
         this.nombre = nombre;
         this.correo = correo;
-        this.ingresosIni = ingresosIni;
+        this.ingresos = ingresos;
     }
 }
