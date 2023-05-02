@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.saveduck.dataBase.Income;
 import com.example.saveduck.dataBase.IncomeDao;
 import com.example.saveduck.dataBase.SaveDataBase;
 import com.example.saveduck.dataBase.User;
@@ -57,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
         incomeDao = bd.incomeDao();
 
         User user = userDao.getAll().get(0);
+
+        /*
         double ultima;
         if(incomeDao.getLatest() == null){
             ultima = 0;
@@ -69,11 +70,11 @@ public class MainActivity extends AppCompatActivity {
         double dineroIni = user.ingresosIni;
 
         double pasta = dineroIni + ultima;
-
+*/
         // Mostrar los datos en sus respectivos campos.
         mainBinding.textoSaludoMain.setText(mainBinding.textoSaludoMain.getText() + " " + user.nombre);
 
-        mainBinding.textoIngresosDinero.setText(String.valueOf(pasta));
+        mainBinding.textoIngresosDinero.setText(String.valueOf(user.ingresosIni));
 
     }
 

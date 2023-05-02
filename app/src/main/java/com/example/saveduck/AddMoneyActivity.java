@@ -2,19 +2,16 @@ package com.example.saveduck;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.saveduck.dataBase.Income;
 import com.example.saveduck.dataBase.IncomeDao;
 import com.example.saveduck.dataBase.SaveDataBase;
+import com.example.saveduck.dataBase.UserDao;
 import com.example.saveduck.databinding.ActivityAddMoneyBinding;
-
-import java.time.Instant;
 
 
 public class AddMoneyActivity extends AppCompatActivity {
@@ -22,6 +19,8 @@ public class AddMoneyActivity extends AppCompatActivity {
     public SaveDataBase bd;
 
     IncomeDao incomeDao;
+
+    UserDao userDao;
     ActivityAddMoneyBinding addBinding;
 
 
@@ -58,11 +57,18 @@ public class AddMoneyActivity extends AppCompatActivity {
     }
 
     public void guardarEnBD(double ingresosDouble, String conceptoIngreso) {
+
         bd = SaveDataBase.getDatabase(getApplicationContext());
+        userDao = bd.userDao();
+
+        userDao.update(ingresosDouble);
+/*
         incomeDao = bd.incomeDao();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             incomeDao.insertAll(new Income(Instant.now().getEpochSecond(), ingresosDouble, conceptoIngreso));
         }
+        */
+
     }
 
     // Función que reproduce un sonido
