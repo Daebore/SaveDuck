@@ -59,7 +59,7 @@ public class WelcomeActivity extends AppCompatActivity {
             }, 2000);
 
         }
-        
+
     // Función que abre el CreateAccount
     public void openCreate() {
         // En este objeto de tipo intent guardaremos la dirección a la página principal de la App.
