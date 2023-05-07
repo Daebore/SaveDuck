@@ -20,9 +20,9 @@
     <color name="color_two">#E3E0E0</color>
 
     <color name="R">#FFA726</color>
-    <color name="Python">#66BB6A</color>
-    <color name="CPP">#EF5350</color>
-    <color name="Java">#29B6F6</color>
+    <color name="Green">#66BB6A</color>
+    <color name="Red">#EF5350</color>
+    <color name="Blue">#29B6F6</color>
 
 
 </resources>
