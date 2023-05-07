@@ -93,7 +93,7 @@ public class BackgroundActivity extends AppCompatActivity {
         Income income = incomeDao.getLatest();
 
         double totalIngresos = 0;
-        if(income == null){
+        if(income == null || income.ingresoDinero <= 0){
             backBinding.tvR.setText(String.valueOf(totalIngresos));
         }else{
             ArrayList<Income> listaIngresos = (ArrayList<Income>) incomeDao.getAll();
