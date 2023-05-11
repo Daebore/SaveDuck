@@ -54,32 +54,63 @@ public class BackgroundActivity extends AppCompatActivity {
 
         // Set the percentage of language used
 
-        tvR.setText(Integer.toString((int) calcularIngresos()));
-
-        tvPython.setText(Integer.toString((int) calcularGastos()));
-
-        tvCPP.setText(Integer.toString((int) obtenerIngresos()));
 
 
-        // Set the data and color to the pie chart
-        pieChart.addPieSlice(
-                new PieModel(
-                        "R",
-                        Integer.parseInt(tvR.getText().toString()),
-                        Color.parseColor("#66BB6A")));
-        pieChart.addPieSlice(
-                new PieModel(
-                        "Python",
-                        Integer.parseInt(tvPython.getText().toString()),
-                        Color.parseColor("#EF5350")));
-        pieChart.addPieSlice(
-                new PieModel(
-                        "C++",
-                        Integer.parseInt(tvCPP.getText().toString()),
-                        Color.parseColor("#29B6F6")));
+        double num = obtenerAhorros();
 
-        // To animate the pie chart
-        pieChart.startAnimation();
+        if(num > 0){
+            tvR.setText(Integer.toString((int) calcularIngresos()));
+
+            tvPython.setText(Integer.toString((int) calcularGastos()));
+
+            tvCPP.setText(Integer.toString((int) obtenerAhorros()));
+
+            // Set the data and color to the pie chart
+            pieChart.addPieSlice(
+                    new PieModel(
+                            "R",
+                            Integer.parseInt(tvR.getText().toString()),
+                            Color.parseColor("#66BB6A")));
+            pieChart.addPieSlice(
+                    new PieModel(
+                            "Python",
+                            Integer.parseInt(tvPython.getText().toString()),
+                            Color.parseColor("#EF5350")));
+            pieChart.addPieSlice(
+                    new PieModel(
+                            "C++",
+                            Integer.parseInt(tvCPP.getText().toString()),
+                            Color.parseColor("#29B6F6")));
+
+            // To animate the pie chart
+            pieChart.startAnimation();
+        }else{
+            tvR.setText(Integer.toString((int) calcularIngresos()));
+
+            tvPython.setText(Integer.toString((int) calcularGastos()));
+
+
+            // Set the data and color to the pie chart
+            pieChart.addPieSlice(
+                    new PieModel(
+                            "R",
+                            Integer.parseInt(tvR.getText().toString()),
+                            Color.parseColor("#66BB6A")));
+            pieChart.addPieSlice(
+                    new PieModel(
+                            "Python",
+                            Integer.parseInt(tvPython.getText().toString()),
+                            Color.parseColor("#EF5350")));
+            pieChart.addPieSlice(
+                    new PieModel(
+                            "C++",
+                            Integer.parseInt(String.valueOf(0)),
+                            Color.parseColor("#29B6F6")));
+
+            // To animate the pie chart
+            pieChart.startAnimation();
+        }
+
     }
 
     public double calcularIngresos(){
@@ -116,7 +147,7 @@ public class BackgroundActivity extends AppCompatActivity {
         return totalGastos;
     }
 
-    public double obtenerIngresos(){
+    public double obtenerAhorros(){
         UserDao userDao = bd.userDao();
         User user = userDao.getAll().get(0);
 
