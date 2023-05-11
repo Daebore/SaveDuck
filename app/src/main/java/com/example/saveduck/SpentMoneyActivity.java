@@ -104,6 +104,7 @@ public class SpentMoneyActivity extends AppCompatActivity {
     // Función que abre el Main
     public void openMain() {
         Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
             Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(SpentMoneyActivity.this).toBundle();
             startActivity(intent, bundle);

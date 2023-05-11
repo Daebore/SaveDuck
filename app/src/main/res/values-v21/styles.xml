@@ -2,6 +2,6 @@
 <resources>
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowEnterTransition">@android:transition/fade</item>
-        <item name="android:windowExitTransition">@android:transition/explode</item>
+        <item name="android:windowExitTransition">@android:transition/fade</item>
     </style>
 </resources>
