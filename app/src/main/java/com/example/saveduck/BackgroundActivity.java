@@ -1,6 +1,5 @@
 package com.example.saveduck;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -126,10 +125,4 @@ public class BackgroundActivity extends AppCompatActivity {
         return ingresos;
     }
 
-    // Función que abre el Main
-    public void openMain() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        this.finish();
-    }
 }

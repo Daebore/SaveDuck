@@ -1,5 +1,6 @@
 package com.example.saveduck;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Build;
@@ -109,7 +110,12 @@ public class AddMoneyActivity extends AppCompatActivity {
     // Función que abre el Main
     public void openMain() {
         Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(AddMoneyActivity.this).toBundle();
+            startActivity(intent, bundle);
+        }else{
+            startActivity(intent);
+        }
         this.finish();
     }
 }

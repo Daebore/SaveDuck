@@ -1,6 +1,8 @@
 package com.example.saveduck;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
 
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         // Implementamos DataBinding
         mainBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(mainBinding.getRoot());
@@ -52,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
         mainBinding.botonHistorial.setOnClickListener(v -> {
             openHistorial();
         });
-
 
     }
 
@@ -111,19 +113,34 @@ public class MainActivity extends AppCompatActivity {
     // Función que abre el AddMoneyActivity
     public void openIngresos() {
         Intent intent = new Intent(this, AddMoneyActivity.class);
-        startActivity(intent);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle();
+            startActivity(intent, bundle);
+        }else{
+            startActivity(intent);
+        }
     }
 
     // Función que abre el SpentMoneyActivity
     public void openGastos() {
         Intent intent = new Intent(this, SpentMoneyActivity.class);
-        startActivity(intent);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle();
+            startActivity(intent, bundle);
+        }else{
+            startActivity(intent);
+        }
     }
 
     // Función que abre el BackgroundActivity
     public void openHistorial() {
         Intent intent = new Intent(this, BackgroundActivity.class);
-        startActivity(intent);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle();
+            startActivity(intent, bundle);
+        }else{
+            startActivity(intent);
+        }
     }
 
     private void cerrarApp() {

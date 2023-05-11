@@ -1,6 +1,8 @@
 package com.example.saveduck;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -94,7 +96,12 @@ public class CreateAccountActivity extends AppCompatActivity {
     // Función que abre el MainActivity
     public void openMain() {
         Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(CreateAccountActivity.this).toBundle();
+            startActivity(intent, bundle);
+        }else{
+            startActivity(intent);
+        }
         this.finish();
     }
 
