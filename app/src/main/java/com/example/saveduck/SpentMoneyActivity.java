@@ -66,10 +66,6 @@ public class SpentMoneyActivity extends AppCompatActivity {
             }
         });
 
-        // Si pulsamos el botonHome (footer) volvemos al MainActivity
-        spentBinding.botonHome.setOnClickListener(v -> {
-            openMain();
-        });
     }
 
     public void guardarEnBD(double gastosDouble, String conceptoGasto) {
@@ -108,5 +104,6 @@ public class SpentMoneyActivity extends AppCompatActivity {
     public void openMain() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        this.finish();
     }
 }

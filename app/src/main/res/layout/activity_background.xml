@@ -285,45 +285,10 @@
                     android:layout_marginRight="20dp"
                     android:background="@color/color_two" />
 
-
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/footer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/botonHome"
-                android:layout_width="62dp"
-                android:layout_height="58dp"
-                android:background="@drawable/circle_custom2"
-                android:contentDescription=" "
-                android:drawableLeft="@drawable/ic_home2"
-                android:gravity="center"
-                android:outlineAmbientShadowColor="@android:color/transparent"
-                android:outlineSpotShadowColor="@android:color/transparent"
-                android:paddingLeft="6.5dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.997" />
-
-            <LinearLayout
-                android:layout_width="406dp"
-                android:layout_height="35dp"
-                android:background="@drawable/custom_layout2"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"></LinearLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </RelativeLayout>
 

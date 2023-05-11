@@ -2,7 +2,9 @@ package com.example.saveduck;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.saveduck.dataBase.Expense;
@@ -50,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         mainBinding.botonHistorial.setOnClickListener(v -> {
             openHistorial();
         });
+
+
     }
 
     public void recogerDatosBD() {
@@ -122,4 +126,21 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private void cerrarApp() {
+        new AlertDialog.Builder(this)
+                .setIcon(R.drawable.logosf)
+                .setTitle("¿Realmente desea salir de SaveDuck?")
+                .setCancelable(false)
+                .setNegativeButton(android.R.string.cancel, null)
+                .setPositiveButton(android.R.string.ok, (dialog, which) -> android.os.Process.killProcess(android.os.Process.myPid())).show();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            cerrarApp();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }

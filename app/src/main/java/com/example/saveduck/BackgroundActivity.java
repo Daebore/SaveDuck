@@ -48,11 +48,6 @@ public class BackgroundActivity extends AppCompatActivity {
 
         setData();
 
-
-        // Si pulsamos el botonHome (footer) volvemos al MainActivity
-        backBinding.botonHome.setOnClickListener(v -> {
-            openMain();
-        });
     }
 
     private void setData()
@@ -135,5 +130,6 @@ public class BackgroundActivity extends AppCompatActivity {
     public void openMain() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        this.finish();
     }
 }

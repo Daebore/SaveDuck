@@ -72,10 +72,6 @@ public class AddMoneyActivity extends AppCompatActivity {
 
         });
 
-        // Si pulsamos el botonHome (footer) volvemos al MainActivity
-        addBinding.botonHome.setOnClickListener(v -> {
-            openMain();
-        });
     }
 
     public void guardarEnBD(double ingresosDouble, String conceptoIngreso) {
@@ -114,5 +110,6 @@ public class AddMoneyActivity extends AppCompatActivity {
     public void openMain() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        this.finish();
     }
 }
