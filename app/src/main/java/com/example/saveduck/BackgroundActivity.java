@@ -1,5 +1,6 @@
 package com.example.saveduck;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -37,6 +38,12 @@ public class BackgroundActivity extends AppCompatActivity {
         // Implementamos DataBinding
         backBinding = ActivityBackgroundBinding.inflate(getLayoutInflater());
         setContentView(backBinding.getRoot());
+
+        // Si pulsamos el botonHome (footer) volvemos al MainActivity
+        backBinding.buttonTest.setOnClickListener(v -> {
+            openMain();
+        });
+
 
         bd = SaveDataBase.getDatabase(getApplicationContext());
 
@@ -154,6 +161,11 @@ public class BackgroundActivity extends AppCompatActivity {
         double ingresos = user.ingresos;
         backBinding.tvCPP.setText(String.valueOf(user.ingresos));
         return ingresos;
+    }
+
+    public void openMain() {
+        Intent intent = new Intent(this, ShowIncomeActivity.class);
+        startActivity(intent);
     }
 
 }

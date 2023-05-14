@@ -13,9 +13,13 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".BackgroundActivity"
+            android:name=".ShowIncomeActivity"
             android:exported="false"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".BackgroundActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SpentMoneyActivity"
             android:exported="false"

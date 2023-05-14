@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textoFechaIngreso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textColor="@color/black"
+        tools:text="20/03/2023"/>
+
+    <TextView
+        android:id="@+id/textoIngreso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/textoFechaIngreso"
+        android:layout_alignParentStart="@+id/textoConcepto"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textColor="@color/black"
+        tools:text="50€"/>
+
+    <TextView
+        android:id="@+id/textoConcepto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textColor="@color/black"
+        tools:text="Hamburguesa"/>
+
+</RelativeLayout>
