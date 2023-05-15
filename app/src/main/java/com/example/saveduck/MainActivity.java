@@ -133,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
     // Función que abre el BackgroundActivity
     public void openHistorial() {
         Intent intent = new Intent(this, BackgroundActivity.class);

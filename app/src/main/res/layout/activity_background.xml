@@ -285,15 +285,45 @@
                     android:layout_marginRight="20dp"
                     android:background="@color/color_two" />
 
-                <Button
-                    android:id="@+id/buttonTest"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Button" />
-
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/botonMostrarIn"
+            android:layout_width="330dp"
+            android:layout_height="48dp"
+            android:drawableRight="@drawable/ic_arrows"
+            android:layout_alignParentTop="@+id/details"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="137dp"
+            android:background="@drawable/custom_buttom2"
+            android:adjustViewBounds="true"
+            android:contentDescription=" "
+            android:padding="1dp"
+            android:text="Mostrar historial de ingresos"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/Button2"
+            android:layout_width="330dp"
+            android:layout_height="48dp"
+            android:drawableRight="@drawable/ic_arrows"
+            android:layout_alignParentTop="@+id/botonMostrarIn"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="37dp"
+            android:background="@drawable/custom_buttom2"
+            android:contentDescription=" "
+            android:text="Mostrar historial de gastos"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
 
     </RelativeLayout>

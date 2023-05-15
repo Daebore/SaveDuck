@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -43,7 +45,7 @@ public class BackgroundActivity extends AppCompatActivity {
         setContentView(backBinding.getRoot());
 
         // Si pulsamos el botonHome (footer) volvemos al MainActivity
-        backBinding.buttonTest.setOnClickListener(v -> {
+        backBinding.botonMostrarIn.setOnClickListener(v -> {
             openShowIncome();
         });
 
@@ -54,6 +56,7 @@ public class BackgroundActivity extends AppCompatActivity {
         tvPython = backBinding.tvPython;
         tvCPP = backBinding.tvCPP;
         pieChart = backBinding.piechart;
+
 
         setData();
 
@@ -72,6 +75,14 @@ public class BackgroundActivity extends AppCompatActivity {
             tvPython.setText(Integer.toString((int) calcularGastos()));
 
             tvCPP.setText(Integer.toString((int) obtenerAhorros()));
+
+            if(calcularIngresos() > calcularGastos()){
+                Log.d("Quest_view", "¡Enhorabuena! El balance es positivo");
+                AppToast.showMessage(this, "¡Enhorabuena! El balance es positivo", Toast.LENGTH_SHORT);
+            }else if(calcularIngresos() < calcularGastos()){
+                Log.d("Quest_view", "¡Cuidado! El balance es negativo");
+                AppToast.showMessage(this, "¡Cuidado! El balance es negativo", Toast.LENGTH_SHORT);
+            }
 
             // Set the data and color to the pie chart
             pieChart.addPieSlice(
@@ -178,6 +189,7 @@ public class BackgroundActivity extends AppCompatActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
             Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(BackgroundActivity.this).toBundle();
             startActivity(intent, bundle);
