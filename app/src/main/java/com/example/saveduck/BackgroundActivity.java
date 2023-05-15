@@ -1,8 +1,11 @@
 package com.example.saveduck;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,7 +44,7 @@ public class BackgroundActivity extends AppCompatActivity {
 
         // Si pulsamos el botonHome (footer) volvemos al MainActivity
         backBinding.buttonTest.setOnClickListener(v -> {
-            openMain();
+            openShowIncome();
         });
 
 
@@ -60,8 +63,6 @@ public class BackgroundActivity extends AppCompatActivity {
     {
 
         // Set the percentage of language used
-
-
 
         double num = obtenerAhorros();
 
@@ -163,9 +164,27 @@ public class BackgroundActivity extends AppCompatActivity {
         return ingresos;
     }
 
-    public void openMain() {
+    public void openShowIncome() {
         Intent intent = new Intent(this, ShowIncomeActivity.class);
-        startActivity(intent);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(BackgroundActivity.this).toBundle();
+            startActivity(intent, bundle);
+        }else{
+            startActivity(intent);
+        }
+    }
+
+    // Método para mostrar animación Fade al ir hacia atrás
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        Intent intent = new Intent(this, MainActivity.class);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(BackgroundActivity.this).toBundle();
+            startActivity(intent, bundle);
+        }else{
+            startActivity(intent);
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
 }

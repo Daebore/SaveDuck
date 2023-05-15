@@ -69,11 +69,11 @@ public class MainActivity extends AppCompatActivity {
         // Mostrar los datos en sus respectivos campos.
         mainBinding.textoSaludoMain.setText(mainBinding.textoSaludoMain.getText() + " " + user.nombre);
 
-        mainBinding.textoIngresosDinero.setText(String.valueOf(calcularIngresos()));
+        mainBinding.textoIngresosDinero.setText(calcularIngresos() + "€");
 
-        mainBinding.textoGastosDinero.setText(String.valueOf(calcularGastos()));
+        mainBinding.textoGastosDinero.setText(calcularGastos() + "€");
 
-        mainBinding.textoBlance.setText(String.valueOf(user.ingresos));
+        mainBinding.textoBlance.setText(user.ingresos + "€");
 
     }
 
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
         double totalIngresos = 0;
         if(income == null){
-            mainBinding.textoIngresosDinero.setText(String.valueOf(totalIngresos));
+            mainBinding.textoIngresosDinero.setText(totalIngresos + "€");
         }else{
             ArrayList<Income> listaIngresos = (ArrayList<Income>) incomeDao.getAll();
 
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
         double totalGastos = 0;
         if(expense == null){
-            mainBinding.textoGastosDinero.setText(String.valueOf(totalGastos));
+            mainBinding.textoGastosDinero.setText(totalGastos + "€");
         }else{
             ArrayList<Expense> listaGastos = (ArrayList<Expense>) expenseDao.getAll();
 

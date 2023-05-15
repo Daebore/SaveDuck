@@ -12,6 +12,7 @@ import com.example.saveduck.dataBase.SaveDataBase;
 import com.example.saveduck.databinding.ActivityShowIncomeBinding;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class ShowIncomeActivity extends AppCompatActivity {
 
@@ -33,6 +34,7 @@ public class ShowIncomeActivity extends AppCompatActivity {
         Income income = incomeDao.getLatest();
 
         ArrayList<Income> listaIngresos = (ArrayList<Income>) incomeDao.getAll();
+        Collections.reverse(listaIngresos);
 
         IncomeAdapter adapter = new IncomeAdapter();
         showIncomeBinding.incomeRecycler.setAdapter(adapter);
