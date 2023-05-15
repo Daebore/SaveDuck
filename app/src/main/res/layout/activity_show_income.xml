@@ -39,8 +39,8 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:textColor="@color/black"
-                android:textSize="24sp"
-                android:text="Nada que mostrar"
+                android:textSize="25sp"
+                android:text="Todavía no se ha registrado ningún ingreso"
                 android:visibility="gone" />
             
         </FrameLayout>
