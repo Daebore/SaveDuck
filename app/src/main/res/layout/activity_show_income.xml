@@ -32,6 +32,17 @@
                 tools:itemCount="5"
                 tools:listitem="@layout/income_list_item" />
 
+            <TextView
+                android:id="@+id/empty_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:text="Nada que mostrar"
+                android:visibility="gone" />
+            
         </FrameLayout>
 
         <LinearLayout

@@ -1,6 +1,7 @@
 package com.example.saveduck;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -36,6 +37,12 @@ public class ShowIncomeActivity extends AppCompatActivity {
         IncomeAdapter adapter = new IncomeAdapter();
         showIncomeBinding.incomeRecycler.setAdapter(adapter);
         adapter.submitList(listaIngresos);
+
+        if(listaIngresos.isEmpty()){
+            showIncomeBinding.emptyView.setVisibility(View.VISIBLE);
+        }else{
+            showIncomeBinding.emptyView.setVisibility(View.GONE);
+        }
 
 
     }
