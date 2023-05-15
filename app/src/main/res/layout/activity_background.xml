@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:background="@drawable/custom_layout"
             app:cardBackgroundColor="@color/green"
-            android:layout_height="200dp"
+            android:layout_height="210dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="15dp"
             android:layout_marginRight="20dp"
@@ -296,7 +296,7 @@
             android:drawableRight="@drawable/ic_arrows"
             android:layout_alignParentTop="@+id/details"
             android:layout_alignParentBottom="true"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="33dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="137dp"
             android:background="@drawable/custom_buttom2"
@@ -315,7 +315,7 @@
             android:drawableRight="@drawable/ic_arrows"
             android:layout_alignParentTop="@+id/botonMostrarIn"
             android:layout_alignParentBottom="true"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="33dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="37dp"
             android:background="@drawable/custom_buttom2"
@@ -324,7 +324,6 @@
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
-
 
     </RelativeLayout>
 
