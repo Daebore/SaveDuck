@@ -1,9 +1,7 @@
 package com.example.saveduck;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
@@ -11,6 +9,7 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.saveduck.dataBase.Income;
+import com.example.saveduck.databinding.IncomeListItemBinding;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -43,9 +42,9 @@ public class IncomeAdapter extends ListAdapter<Income, IncomeAdapter.IncomeViewH
     @NonNull
     @Override
     public IncomeAdapter.IncomeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-       View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.income_list_item, parent, false);
+       IncomeListItemBinding incomeListItemBinding = IncomeListItemBinding.inflate(LayoutInflater.from(parent.getContext()));
 
-        return new IncomeViewHolder(view);
+        return new IncomeViewHolder(incomeListItemBinding);
     }
 
     @Override
@@ -57,29 +56,28 @@ public class IncomeAdapter extends ListAdapter<Income, IncomeAdapter.IncomeViewH
 
     class IncomeViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView textoFechaIngreso;
-        private TextView textoIngreso;
-        private TextView textoConcepto;
+        private IncomeListItemBinding incomeListItemBinding;
 
-        public IncomeViewHolder(@NonNull View itemView) {
-            super(itemView);
+        public IncomeViewHolder(@NonNull IncomeListItemBinding incomeListItemBinding) {
+            super(incomeListItemBinding.getRoot());
+            this.incomeListItemBinding = incomeListItemBinding;
 
-            textoFechaIngreso = itemView.findViewById(R.id.textoFechaIngreso);
-            textoIngreso = itemView.findViewById(R.id.textoIngreso);
-            textoConcepto = itemView.findViewById(R.id.textoConcepto);
         }
 
         public void bind(Income income) {
 
             String dateTime = null;
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                dateTime = DateTimeFormatter.ofPattern("dd/MM/yyyy, hh:mm:ss a")
+                dateTime = DateTimeFormatter.ofPattern("dd/MM/yy, hh:mm:ss a")
                         .format(LocalDateTime.now());
             }
 
-            textoFechaIngreso.setText(dateTime);
-            textoIngreso.setText(String.valueOf(income.ingresoDinero) + "€");
-            textoConcepto.setText(income.conceptoIngreso);
+            incomeListItemBinding.textoFechaIngreso.setText(dateTime);
+            incomeListItemBinding.textoIngreso.setText(income.ingresoDinero + "€");
+            incomeListItemBinding.textoConcepto.setText(income.conceptoIngreso);
+
+            incomeListItemBinding.executePendingBindings();
+
         }
     }
 }
