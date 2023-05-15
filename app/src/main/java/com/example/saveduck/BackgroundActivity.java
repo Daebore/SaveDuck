@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -70,19 +69,15 @@ public class BackgroundActivity extends AppCompatActivity {
         double num = obtenerAhorros();
 
         if(num > 0){
-            tvR.setText(Integer.toString((int) calcularIngresos()));
+            double ingresos = calcularIngresos();
+            double gastos = calcularGastos();
+            tvR.setText(Integer.toString((int) ingresos));
 
-            tvPython.setText(Integer.toString((int) calcularGastos()));
+            tvPython.setText(Integer.toString((int) gastos));
 
             tvCPP.setText(Integer.toString((int) obtenerAhorros()));
 
-            if(calcularIngresos() > calcularGastos()){
-                Log.d("Quest_view", "¡Enhorabuena! El balance es positivo");
-                AppToast.showMessage(this, "¡Enhorabuena! El balance es positivo", Toast.LENGTH_SHORT);
-            }else if(calcularIngresos() < calcularGastos()){
-                Log.d("Quest_view", "¡Cuidado! El balance es negativo");
-                AppToast.showMessage(this, "¡Cuidado! El balance es negativo", Toast.LENGTH_SHORT);
-            }
+            comprobarBalance(ingresos, gastos);
 
             // Set the data and color to the pie chart
             pieChart.addPieSlice(
@@ -103,11 +98,13 @@ public class BackgroundActivity extends AppCompatActivity {
 
             // To animate the pie chart
             pieChart.startAnimation();
-        }else{
+        }else if(num <= 0){
+            double ingresos = calcularIngresos();
+            double gastos = calcularGastos();
             tvR.setText(Integer.toString((int) calcularIngresos()));
-
             tvPython.setText(Integer.toString((int) calcularGastos()));
 
+            comprobarBalance(ingresos, gastos);
 
             // Set the data and color to the pie chart
             pieChart.addPieSlice(
@@ -175,20 +172,18 @@ public class BackgroundActivity extends AppCompatActivity {
         return ingresos;
     }
 
-    public void openShowIncome() {
-        Intent intent = new Intent(this, ShowIncomeActivity.class);
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-            Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(BackgroundActivity.this).toBundle();
-            startActivity(intent, bundle);
-        }else{
-            startActivity(intent);
+    public void comprobarBalance(double ingresos, double gastos){
+        if(ingresos > gastos){
+            Log.d("Quest_view", "¡Enhorabuena! El balance es positivo");
+            AppToast.showMessage(this, "¡Enhorabuena! El balance es positivo", Toast.LENGTH_SHORT);
+        }else if(gastos > ingresos){
+            Log.d("Quest_view", "¡Cuidado! Los gastos superan a los ignresos");
+            AppToast.showMessage(this, "¡Cuidado! Los gastos superan a los ignresos", Toast.LENGTH_SHORT);
         }
     }
 
-    // Método para mostrar animación Fade al ir hacia atrás
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        Intent intent = new Intent(this, MainActivity.class);
+    public void openShowIncome() {
+        Intent intent = new Intent(this, ShowIncomeActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
             Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(BackgroundActivity.this).toBundle();
@@ -196,7 +191,6 @@ public class BackgroundActivity extends AppCompatActivity {
         }else{
             startActivity(intent);
         }
-        return super.onKeyDown(keyCode, event);
     }
 
 }

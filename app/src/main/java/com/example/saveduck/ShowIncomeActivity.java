@@ -1,10 +1,6 @@
 package com.example.saveduck;
 
-import android.app.ActivityOptions;
-import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,25 +40,12 @@ public class ShowIncomeActivity extends AppCompatActivity {
         showIncomeBinding.incomeRecycler.setAdapter(adapter);
         adapter.submitList(listaIngresos);
 
-        if(listaIngresos.isEmpty()){
+        if (listaIngresos.isEmpty()) {
             showIncomeBinding.emptyView.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             showIncomeBinding.emptyView.setVisibility(View.GONE);
         }
 
     }
 
-    // Método para mostrar animación Fade al ir hacia atrás
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        Intent intent = new Intent(this, BackgroundActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-            Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(ShowIncomeActivity.this).toBundle();
-            startActivity(intent, bundle);
-        }else{
-            startActivity(intent);
-        }
-        return super.onKeyDown(keyCode, event);
-    }
 }
