@@ -48,6 +48,9 @@ public class BackgroundActivity extends AppCompatActivity {
             openShowIncome();
         });
 
+        backBinding.botonMostrarGa.setOnClickListener(v -> {
+            openShowSpent();
+        });
 
         bd = SaveDataBase.getDatabase(getApplicationContext());
 
@@ -55,7 +58,6 @@ public class BackgroundActivity extends AppCompatActivity {
         tvPython = backBinding.tvPython;
         tvCPP = backBinding.tvCPP;
         pieChart = backBinding.piechart;
-
 
         setData();
 
@@ -184,6 +186,17 @@ public class BackgroundActivity extends AppCompatActivity {
 
     public void openShowIncome() {
         Intent intent = new Intent(this, ShowIncomeActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(BackgroundActivity.this).toBundle();
+            startActivity(intent, bundle);
+        }else{
+            startActivity(intent);
+        }
+    }
+
+    public void openShowSpent() {
+        Intent intent = new Intent(this, ShowSpentActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
             Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(BackgroundActivity.this).toBundle();
