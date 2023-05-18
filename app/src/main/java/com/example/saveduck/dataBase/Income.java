@@ -33,7 +33,7 @@ public class Income {
         return LocalDateTime.ofEpochSecond(fechaIngreso, 0, zoffset);
     }
 
-    public Income() {
+    public Income(LocalDateTime now, double ingresosDouble, String conceptoIngreso) {
         super();
     }
 
