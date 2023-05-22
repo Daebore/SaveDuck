@@ -14,7 +14,8 @@
         tools:targetApi="31">
         <activity
             android:name=".ShowSpentActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ShowIncomeActivity"
             android:exported="false"
