@@ -15,20 +15,27 @@ import java.util.TimerTask;
 
 public class WelcomeActivity extends AppCompatActivity {
 
+// Declaración de objetos a utilizar:
 
+    // Un objeto de tipo de la base de datos para poder acceder a ella
     public SaveDataBase bd;
-    UserDao userDao;
+
+    // Un objeto para implementar el Data Binding
+    ActivityMainBinding binding;
 
     // Esta clase funciona como pantalla de bienvenida o splash. Va a servir para mostrar
     // el logo de la app únicamente, el eslogan y no se volverá a mostrar
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_welcome);
 
+        // Muy importante esta línea para evitar el error NullPointerException
         bd = SaveDataBase.getDatabase(getApplicationContext());
-        userDao = bd.userDao();
+
+        // Cremos un objeto de tipo UserDao para poder acceder a los métodos CRUD de la tabla User
+        UserDao userDao = bd.userDao();
 
         // Invocamos el método para reproducir el sonido,
         // al abrir la App lo primero que se hará será escuchar el sonido
@@ -43,12 +50,14 @@ public class WelcomeActivity extends AppCompatActivity {
                 @Override
                 public void run() {
 
+                    // Si la tabla user no está vacía (es decir, ya existe un usuario registrado),
+                    // tras mostrar el splash durante 2 segundos, nos vamos al MainActivity
                     if (!userDao.getAll().isEmpty()){
                         // Invocamos el método para abrir el MainActivity
                         openMain();
-
                     }else{
-                        // Invocamos el método para abrir el MainActivity
+                        // Si la tabla user está vacía, ningún usuario se ha registrado aún en la App,
+                        // por lo que mostramos el activity para crear usuario
                         openCreate();
                     }
 
@@ -60,7 +69,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         }
 
-    // Función que abre el CreateAccount
+    // Método que abre el CreateAccount
     public void openCreate() {
         // En este objeto de tipo intent guardaremos la dirección a la página principal de la App.
         // Lo utilizaremos con otro método para indicarle al programa que nos queremos mover
@@ -69,7 +78,7 @@ public class WelcomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    // Función que abre el MainAccount
+    // Método que abre el MainAccount
     public void openMain() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

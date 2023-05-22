@@ -62,7 +62,7 @@
                         <View
                             android:layout_width="15dp"
                             android:layout_height="match_parent"
-                            android:background="@color/Green" />
+                            android:background="@color/color_ingresos" />
 
                         <!--Text view to display R -->
                         <TextView
@@ -87,7 +87,7 @@
                         <View
                             android:layout_width="15dp"
                             android:layout_height="match_parent"
-                            android:background="@color/Red" />
+                            android:background="@color/color_gastos" />
 
                         <!--Text view to display python text -->
                         <TextView
@@ -112,7 +112,7 @@
                         <View
                             android:layout_width="15dp"
                             android:layout_height="match_parent"
-                            android:background="@color/Blue" />
+                            android:background="@color/color_blue" />
 
                         <!--Text view to display C++ text -->
                         <TextView
@@ -188,7 +188,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tvR"
+                        android:id="@+id/textoIngresos"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
@@ -226,7 +226,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tvPython"
+                        android:id="@+id/textoGastos"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
@@ -265,7 +265,7 @@
 
 
                     <TextView
-                        android:id="@+id/tvCPP"
+                        android:id="@+id/textoAhorrado"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"

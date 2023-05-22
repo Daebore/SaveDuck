@@ -22,10 +22,6 @@ public class SpentMoneyActivity extends AppCompatActivity {
     // Instanciamos un objeto de la clase de la BBDD y 2 objetos, 1 de la tabla User y otro de Expense
     public SaveDataBase bd;
 
-    ExpenseDao expenseDao;
-
-    UserDao userDao;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,14 +71,14 @@ public class SpentMoneyActivity extends AppCompatActivity {
 
         // Inicializamos el objeto de tipo userDao (nos va a permitir acceder a los métodos de la
         // tabla User que nos permitirá realizar las funcinoes CRUD)
-        userDao = bd.userDao();
+        UserDao userDao = bd.userDao();
 
         // Actualizamos el campo de ingresos de la tabla User
         userDao.updateExpense(gastosDouble);
 
         // Inicializamos el objeto de tipo ExpenseDao (nos va a permitir acceder a los métodos de la
         // tabla Expense que nos permitirá realizar las funcinoes CRUD)
-        expenseDao = bd.expenseDao();
+        ExpenseDao expenseDao = bd.expenseDao();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             // Hacemos el insert del nuevo registro, con la fecha del mismo (PK) y el gasto

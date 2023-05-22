@@ -23,10 +23,6 @@ public class AddMoneyActivity extends AppCompatActivity {
     // Instanciamos un objeto de la clase de la BBDD y 2 objetos, 1 de la tabla User y otro de Income
     public SaveDataBase bd;
 
-    IncomeDao incomeDao;
-
-    UserDao userDao;
-
     // Instanciamos este objeto para poder implementar Data Binding
     ActivityAddMoneyBinding addBinding;
 
@@ -81,14 +77,14 @@ public class AddMoneyActivity extends AppCompatActivity {
 
         // Inicializamos el objeto de tipo userDao (nos va a permitir acceder a los métodos de la
         // tabla User que nos permitirá realizar las funcinoes CRUD)
-        userDao = bd.userDao();
+        UserDao userDao = bd.userDao();
 
         // Actualizamos el campo de ingresos de la tabla User
         userDao.update(ingresosDouble);
 
         // Inicializamos el objeto de tipo IncomeDao (nos va a permitir acceder a los métodos de la
         // tabla Income que nos permitirá realizar las funcinoes CRUD)
-        incomeDao = bd.incomeDao();
+        IncomeDao incomeDao = bd.incomeDao();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             // Hacemos el insert del nuevo registro, con la fecha del mismo (PK) y el ingreso
