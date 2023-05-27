@@ -26,6 +26,8 @@ public abstract class SaveDataBase extends RoomDatabase {
     // este modo nos aseguramos de que la BBDD se cree una sola vez y despúes la devolverá cada vez
     // que se necesite
     public static SaveDataBase getDatabase(final Context context) {
+
+        // Si la base de datos no ha sido instanciada aún, se crea
         if (INSTANCE == null) {
             synchronized (SaveDataBase.class) {
                 if (INSTANCE == null) {
@@ -36,6 +38,8 @@ public abstract class SaveDataBase extends RoomDatabase {
                 }
             }
         }
+
+        // Si ya existe, se devulve con return
         return INSTANCE;
     }
 

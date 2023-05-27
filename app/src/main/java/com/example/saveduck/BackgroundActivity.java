@@ -241,8 +241,8 @@ public class BackgroundActivity extends AppCompatActivity {
             Log.d("Quest_view", "¡Enhorabuena! El balance es positivo");
             AppToast.showMessage(this, "¡Enhorabuena! El balance es positivo", Toast.LENGTH_SHORT);
         }else if(gastos > ingresos){
-            Log.d("Quest_view", "¡Cuidado! Los gastos superan a los ignresos");
-            AppToast.showMessage(this, "¡Cuidado! Los gastos superan a los ignresos", Toast.LENGTH_SHORT);
+            Log.d("Quest_view", "¡Cuidado! Los gastos superan a los ingresos");
+            AppToast.showMessage(this, "¡Cuidado! Los gastos superan a los ingresos", Toast.LENGTH_SHORT);
         }
     }
 
@@ -261,6 +261,7 @@ public class BackgroundActivity extends AppCompatActivity {
         }else{
             startActivity(intent);
         }
+
     }
 
     // Método que abre el ShowSpentActivity

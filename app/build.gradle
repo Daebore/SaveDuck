@@ -27,6 +27,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    // Data Binding activated
     buildFeatures{
         dataBinding true
     }
@@ -44,10 +45,11 @@ dependencies {
     // For Card view
     implementation 'androidx.cardview:cardview:1.0.0'
 
-// Chart and graph library
+    // Chart and graph library
     implementation 'com.github.blackfizz:eazegraph:1.2.5l@aar'
     implementation 'com.nineoldandroids:library:2.4.0'
 
+    // SQLite Room
     implementation "androidx.room:room-runtime:2.2.6"
     annotationProcessor "androidx.room:room-compiler:2.2.6"
 
