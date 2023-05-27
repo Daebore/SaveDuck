@@ -44,31 +44,50 @@ public class AddMoneyActivity extends AppCompatActivity {
 
             // Si el campo de añadir ingresos está vacío, mostramos al user un mensaje emergente/toast
             // indicando que lo rellene
-            if(ingresoDinero.isEmpty()){
+            if(ingresoDinero.isEmpty()) {
                 Log.d("Add_view", "El campo Ingresos no puede estar vacío");
                 AppToast.showMessage(this, "El campo Ingresos no puede estar vacío", Toast.LENGTH_SHORT);
-            }else{
-                //Si no está vacío, reproducimos el sonido descargado, guardamos los datos en la BBDD
-                // mostramos un toast indicando el éxito de la operación y regresamos al Main
-                sonidoMonedaMario();
+            }else {
+
                 // Casteamos los ingresos a double
-                double ingresosDouble = Double.parseDouble(ingresoDinero);
+                double ingresoDouble = Double.parseDouble(ingresoDinero);
+                if (ingresoDouble > 1000000) {
+                    // Para evitar desbordar la variable
+                    Log.d("Create_view", "Cada nuevo ingreso registrado no puede superar los 1000000€");
+                    AppToast.showMessage(this, "Cada nuevo ingreso registrado no puede superar los 1000000€", Toast.LENGTH_SHORT);
+                } else if (!conceptoIngreso.isEmpty() && conceptoIngreso.length() > 30) {
+                    // Si el concepto no está vacío y es demasiado largo, mostramos el mensaje correspondiente
+                    Log.d("Create_view", "El tamaño del concepto no puede superar los 30 caracteres");
+                    AppToast.showMessage(this, "El tamaño del concepto no puede superar los 30 caracteres", Toast.LENGTH_SHORT);
+                } else if (conceptoIngreso.toLowerCase().contains("select") || conceptoIngreso.toLowerCase().contains("delete")
+                        || conceptoIngreso.toLowerCase().contains("drop") || conceptoIngreso.toLowerCase().contains("insert")
+                        || conceptoIngreso.toLowerCase().contains("update")) {
+                    // Para evitar SQL Injections
+                    Log.d("Create_view", "El concepto contiene palabras no permitidas");
+                    AppToast.showMessage(this, "El concepto contiene palabras no permitidas", Toast.LENGTH_SHORT);
 
-                // Invocamos el método que nos va a permitir actualizar el salario del User y añadir
-                // un registro nuevo a la tabla Income
-                guardarEnBD(ingresosDouble, conceptoIngreso);
+                } else {
+                    //Si no está vacío, reproducimos el sonido descargado, guardamos los datos en la BBDD
+                    // mostramos un toast indicando el éxito de la operación y regresamos al Main
+                    sonidoMonedaMario();
+                    // Casteamos los ingresos a double
+                    double ingresosDouble = Double.parseDouble(ingresoDinero);
 
-                // Este log nos sirve para debuggear. Además, añadimos un toast para mostrar al usuario
-                // un mensaje indicándole que el registro se ha realizado correctamente
-                Log.d("Add_view", "Ingreso registrado");
-                AppToast.showMessage(this, "Ingreso registrado", Toast.LENGTH_SHORT);
+                    // Invocamos el método que nos va a permitir actualizar el salario del User y añadir
+                    // un registro nuevo a la tabla Income
+                    guardarEnBD(ingresosDouble, conceptoIngreso);
 
-                // Una vez registrado el ingreso, volvemos al MainActivity (aparte de por diseño, se hace
-                // para evitar errores con la bbdd por si el usuario decide pulsar varias veces seguidas
-                // el botón de añadir ingresos)
-                openMain();
+                    // Este log nos sirve para debuggear. Además, añadimos un toast para mostrar al usuario
+                    // un mensaje indicándole que el registro se ha realizado correctamente
+                    Log.d("Add_view", "Ingreso registrado");
+                    AppToast.showMessage(this, "Ingreso registrado", Toast.LENGTH_SHORT);
+
+                    // Una vez registrado el ingreso, volvemos al MainActivity (aparte de por diseño, se hace
+                    // para evitar errores con la bbdd por si el usuario decide pulsar varias veces seguidas
+                    // el botón de añadir ingresos)
+                    openMain();
+                }
             }
-
         });
 
     }

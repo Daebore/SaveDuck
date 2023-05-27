@@ -42,30 +42,47 @@ public class SpentMoneyActivity extends AppCompatActivity {
 
             // Si el campo de añadir gastos está vacío, mostramos al user un mensaje emergente/toast
             // indicando que lo rellene
-            if(gastoDinero.isEmpty()){
+            if(gastoDinero.isEmpty()) {
                 Log.d("Spent_view", "El campo Gastos no puede estar vacío");
                 AppToast.showMessage(this, "El campo Gastos no puede estar vacío", Toast.LENGTH_SHORT);
-            }else{
-                //Si no está vacío, reproducimos el sonido descargado, guardamos los datos en la BBDD
-                // mostramos un toast indicando el éxito de la operación y regresamos al Main
-                sonidoSonicRings();
+            }else {
 
-                // Casteamos los ingresos a double
+                // Casteamos los gastos a double
                 double gastoDouble = Double.parseDouble(gastoDinero);
+                if (gastoDouble > 1000000) {
+                    // Para evitar desbordar la variable
+                    Log.d("Create_view", "Cada nuevo gasto registrado no puede superar los 1000000€");
+                    AppToast.showMessage(this, "Cada nuevo gasto registrado no puede superar los 1000000€", Toast.LENGTH_SHORT);
+                }else if(!conceptoIGasto.isEmpty() && conceptoIGasto.length() > 30){
+                    // Si el concepto no está vacío y es demasiado largo, mostramos el mensaje correspondiente
+                    Log.d("Create_view", "El tamaño del concepto no puede superar los 30 caracteres");
+                    AppToast.showMessage(this, "El tamaño del concepto no puede superar los 30 caracteres", Toast.LENGTH_SHORT);
+                }else if(conceptoIGasto.toLowerCase().contains("select") || conceptoIGasto.toLowerCase().contains("delete")
+                        || conceptoIGasto.toLowerCase().contains("drop") || conceptoIGasto.toLowerCase().contains("insert")
+                        || conceptoIGasto.toLowerCase().contains("update")){
+                    // Para evitar SQL Injections
+                    Log.d("Create_view", "El concepto contiene palabras no permitidas");
+                    AppToast.showMessage(this, "El concepto contiene palabras no permitidas", Toast.LENGTH_SHORT);
 
-                // Invocamos el método que nos va a permitir actualizar el salario del User y añadir
-                // un registro nuevo a la tabla Income
-                guardarEnBD(gastoDouble, conceptoIGasto);
+                } else {
+                    //Si no está vacío, reproducimos el sonido descargado, guardamos los datos en la BBDD
+                    // mostramos un toast indicando el éxito de la operación y regresamos al Main
+                    sonidoSonicRings();
 
-                // Este log nos sirve para debuggear. Además, añadimos un toast para mostrar al usuario
-                // un mensaje indicándole que el registro se ha realizado correctamente
-                Log.d("Quest_view", "Gasto registrado");
-                AppToast.showMessage(this, "Gasto registrado", Toast.LENGTH_SHORT);
+                    // Invocamos el método que nos va a permitir actualizar el salario del User y añadir
+                    // un registro nuevo a la tabla Income
+                    guardarEnBD(gastoDouble, conceptoIGasto);
 
-                // Una vez registrado el gasto, volvemos al MainActivity (aparte de por diseño, se hace
-                // para evitar errores con la bbdd por si el usuario decide pulsar varias veces seguidas
-                // el botón de añadir ingresos)
-                openMain();
+                    // Este log nos sirve para debuggear. Además, añadimos un toast para mostrar al usuario
+                    // un mensaje indicándole que el registro se ha realizado correctamente
+                    Log.d("Quest_view", "Gasto registrado");
+                    AppToast.showMessage(this, "Gasto registrado", Toast.LENGTH_SHORT);
+
+                    // Una vez registrado el gasto, volvemos al MainActivity (aparte de por diseño, se hace
+                    // para evitar errores con la bbdd por si el usuario decide pulsar varias veces seguidas
+                    // el botón de añadir ingresos)
+                    openMain();
+                }
             }
         });
 

@@ -59,8 +59,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                 // permitirnos mostrar mensaje al usuario por pantalla
                 Log.d("Create_view", "Los campos Nombre y Dirección de correo no pueden estar vacíos");
                 AppToast.showMessage(this, "Los campos Nombre y Dirección de correo no pueden estar vacíos", Toast.LENGTH_SHORT);
-
-            }else if(nombre.isEmpty()){
+            }else if(nombre.isEmpty()) {
                 // Si solo el nombre está vacío mostramos el mensaje correspondiente
                 Log.d("Create_view", "El campo Nombre no puede estar vacío");
                 AppToast.showMessage(this, "El campo Nombre no puede estar vacío", Toast.LENGTH_SHORT);
@@ -72,6 +71,29 @@ public class CreateAccountActivity extends AppCompatActivity {
                 // Si el el checkBox está vacía mostramos el mensaje correspondiente
                 Log.d("Create_view", "Debes aceptar los términos y condiciones de privacidad");
                 AppToast.showMessage(this, "Debes aceptar los términos y condiciones de privacidad", Toast.LENGTH_SHORT);
+            }else if(nombre.length() > 10){
+                // Si el nombre es demasiado largo el mensaje correspondiente
+                Log.d("Create_view", "El tamaño del nombre no puede superar los 10 caracteres");
+                AppToast.showMessage(this, "El tamaño del nombre no puede superar los 10 caracteres", Toast.LENGTH_SHORT);
+            }else if(nombre.toLowerCase().contains("select") || nombre.toLowerCase().contains("delete") || nombre.toLowerCase().contains("drop")
+            || nombre.toLowerCase().contains("insert") || nombre.toLowerCase().contains("update")){
+                // Para evitar SQL Injections
+                Log.d("Create_view", "Nombre no permitido");
+                AppToast.showMessage(this, "Nombre no permitido", Toast.LENGTH_SHORT);
+            }else if(correo.length() > 35){
+                // Si solo el correo es demasiado largo el mensaje correspondiente
+                Log.d("Create_view", "El tamaño del correo no puede superar los 35 caracteres");
+                AppToast.showMessage(this, "El tamaño del correo no puede superar los 35 caracteres", Toast.LENGTH_SHORT);
+            }else if(correo.toLowerCase().contains("select") || correo.toLowerCase().contains("delete") || correo.toLowerCase().contains("drop")
+                    || correo.toLowerCase().contains("insert") || correo.toLowerCase().contains("update") ||
+                    !correo.contains("@")){
+                // Para evitar SQL Injections o formato de correo no válido
+                Log.d("Create_view", "Nombre de correo no permitido");
+                AppToast.showMessage(this, "Nombre de correo no permitido", Toast.LENGTH_SHORT);
+            }else if(ingresosDouble != 0 && ingresosDouble > 1000000){
+                // Para evitar desbordar la variable
+                Log.d("Create_view", "Los ingresos iniciales no pueden superar los 1000000€");
+                AppToast.showMessage(this, "Los ingresos iniciales no pueden superar los 1000000€", Toast.LENGTH_SHORT);
             }else{
                 // Mostramos un mensaje indicando que la cuenta se ha creado correctamente
                 Log.d("Create_view", "La cuenta ha sido creada");
