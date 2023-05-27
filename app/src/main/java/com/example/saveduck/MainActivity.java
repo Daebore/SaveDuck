@@ -95,11 +95,9 @@ public class MainActivity extends AppCompatActivity {
 
         double totalIngresos = 0;
         if(income == null){
-
             // Para evitar error con nulos, si no hay ingresos, por defecto cogemos el valor 0
             mainBinding.textoIngresosDinero.setText(totalIngresos + "€");
         }else{
-
             // Si no es nulo (hay algún ingreso registrado, cogemos todos los ingresos y los guardamos
             // en una lista)
             ArrayList<Income> listaIngresos = (ArrayList<Income>) incomeDao.getAll();

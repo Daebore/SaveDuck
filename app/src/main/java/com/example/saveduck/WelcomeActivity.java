@@ -28,6 +28,8 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Implementamos DataBinding
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_welcome);
 

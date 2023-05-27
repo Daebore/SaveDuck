@@ -19,15 +19,18 @@ import java.time.Instant;
 
 public class SpentMoneyActivity extends AppCompatActivity {
 
-    // Instanciamos un objeto de la clase de la BBDD y 2 objetos, 1 de la tabla User y otro de Expense
+    // Instanciamos un objeto de la clase de la BBDD
     public SaveDataBase bd;
+
+    // Instanciamos un objeto para poder implementar Data Binding
+    ActivitySpentMoneyBinding spentBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         // Implementamos DataBinding
-        ActivitySpentMoneyBinding spentBinding = ActivitySpentMoneyBinding.inflate(getLayoutInflater());
+        spentBinding = ActivitySpentMoneyBinding.inflate(getLayoutInflater());
         setContentView(spentBinding.getRoot());
 
         // Si pulsamos el botonGastos, invocamos al método que reproduce el audio
@@ -37,14 +40,18 @@ public class SpentMoneyActivity extends AppCompatActivity {
             String gastoDinero = spentBinding.etGastos.getText().toString();
             String conceptoIGasto = spentBinding.etConceptoGas.getText().toString();
 
+            // Si el campo de añadir gastos está vacío, mostramos al user un mensaje emergente/toast
+            // indicando que lo rellene
             if(gastoDinero.isEmpty()){
                 Log.d("Spent_view", "El campo Gastos no puede estar vacío");
                 AppToast.showMessage(this, "El campo Gastos no puede estar vacío", Toast.LENGTH_SHORT);
             }else{
+                //Si no está vacío, reproducimos el sonido descargado, guardamos los datos en la BBDD
+                // mostramos un toast indicando el éxito de la operación y regresamos al Main
+                sonidoSonicRings();
+
                 // Casteamos los ingresos a double
                 double gastoDouble = Double.parseDouble(gastoDinero);
-
-                sonidoSonicRings();
 
                 // Invocamos el método que nos va a permitir actualizar el salario del User y añadir
                 // un registro nuevo a la tabla Income
@@ -64,6 +71,7 @@ public class SpentMoneyActivity extends AppCompatActivity {
 
     }
 
+    // Este métodos nos va a permitir crear un objeto de tipo Expense y guardarlo en la BBDD
     public void guardarEnBD(double gastosDouble, String conceptoGasto) {
 
         // Inicializamos la instancia de la base de datos
@@ -98,21 +106,12 @@ public class SpentMoneyActivity extends AppCompatActivity {
 
     // Función que abre el Main
     public void openMain() {
-
         Intent intent = new Intent(this, MainActivity.class);
+
+        // Esta línea va a terminar todos los procesos del activity para evitar procesos o hilos
+        // 'zombie' que se ejecuten en segundo plano, consumiendo recursos
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
-        /*
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-            Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(SpentMoneyActivity.this).toBundle();
-            startActivity(intent, bundle);
-        }else{
-            startActivity(intent);
-        }
-
-        */
 
     }
 }

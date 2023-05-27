@@ -266,6 +266,9 @@ public class BackgroundActivity extends AppCompatActivity {
     // Método que abre el ShowSpentActivity
     public void openShowSpent() {
         Intent intent = new Intent(this, ShowSpentActivity.class);
+
+        // Esta línea va a terminar todos los procesos del activity para evitar procesos o hilos
+        // 'zombie' que se ejecuten en segundo plano, consumiendo recursos
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
             Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(BackgroundActivity.this).toBundle();

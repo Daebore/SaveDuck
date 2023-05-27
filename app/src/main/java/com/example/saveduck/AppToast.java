@@ -7,6 +7,7 @@ import android.widget.Toast;
 // a los usuarios), diseñando nuestros própios métodos para ello
 public class AppToast {
 
+    // Declaramos un objeto de tipo Toast
         public static Toast toast = null;
 
         // Este método va a permitirnos mostrar los mensajes a los usuarios. Los parámetros que

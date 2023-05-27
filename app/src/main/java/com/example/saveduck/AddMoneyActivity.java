@@ -20,7 +20,7 @@ import java.time.Instant;
 
 public class AddMoneyActivity extends AppCompatActivity {
 
-    // Instanciamos un objeto de la clase de la BBDD y 2 objetos, 1 de la tabla User y otro de Income
+    // Instanciamos un objeto de la clase de la BBDD
     public SaveDataBase bd;
 
     // Instanciamos este objeto para poder implementar Data Binding
@@ -42,11 +42,14 @@ public class AddMoneyActivity extends AppCompatActivity {
             String ingresoDinero = addBinding.etIngresos.getText().toString();
             String conceptoIngreso = addBinding.etConceptoIng.getText().toString();
 
+            // Si el campo de añadir ingresos está vacío, mostramos al user un mensaje emergente/toast
+            // indicando que lo rellene
             if(ingresoDinero.isEmpty()){
                 Log.d("Add_view", "El campo Ingresos no puede estar vacío");
                 AppToast.showMessage(this, "El campo Ingresos no puede estar vacío", Toast.LENGTH_SHORT);
             }else{
-
+                //Si no está vacío, reproducimos el sonido descargado, guardamos los datos en la BBDD
+                // mostramos un toast indicando el éxito de la operación y regresamos al Main
                 sonidoMonedaMario();
                 // Casteamos los ingresos a double
                 double ingresosDouble = Double.parseDouble(ingresoDinero);
@@ -70,6 +73,7 @@ public class AddMoneyActivity extends AppCompatActivity {
 
     }
 
+    // Este métodos nos va a permitir crear un objeto de tipo Income y guardarlo en la BBDD
     public void guardarEnBD(double ingresosDouble, String conceptoIngreso) {
 
         // Inicializamos la instancia de la base de datos
@@ -105,6 +109,9 @@ public class AddMoneyActivity extends AppCompatActivity {
     // Función que abre el Main
     public void openMain() {
         Intent intent = new Intent(this, MainActivity.class);
+
+        // Esta línea va a terminar todos los procesos del activity para evitar procesos o hilos
+        // 'zombie' que se ejecuten en segundo plano, consumiendo recursos
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
 
