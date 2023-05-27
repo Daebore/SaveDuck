@@ -309,6 +309,23 @@
             android:textStyle="bold" />
 
         <Button
+            android:id="@+id/botonMCorreo"
+            android:layout_width="45dp"
+            android:layout_height="48dp"
+            android:layout_alignParentTop="@+id/details"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="183dp"
+            android:layout_marginRight="33dp"
+            android:layout_marginBottom="82dp"
+            android:adjustViewBounds="true"
+            android:contentDescription=" "
+            android:padding="1dp"
+            android:text=" "
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
             android:id="@+id/botonMostrarGa"
             android:layout_width="330dp"
             android:layout_height="48dp"
@@ -317,7 +334,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="33dp"
             android:layout_marginRight="10dp"
-            android:layout_marginBottom="37dp"
+            android:layout_marginBottom="28dp"
             android:background="@drawable/custom_buttom2"
             android:contentDescription=" "
             android:text="Mostrar historial de gastos"

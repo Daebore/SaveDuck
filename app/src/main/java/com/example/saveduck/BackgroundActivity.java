@@ -61,6 +61,10 @@ public class BackgroundActivity extends AppCompatActivity {
         backBinding.botonMostrarGa.setOnClickListener(v -> {
             openShowSpent();
         });
+        
+        backBinding.botonMCorreo.setOnClickListener(v -> {
+            mandarMail();
+        });
 
         // Muy importante esta línea para evitar el error NullPointerException
         bd = SaveDataBase.getDatabase(getApplicationContext());
@@ -277,6 +281,16 @@ public class BackgroundActivity extends AppCompatActivity {
         }else{
             startActivity(intent);
         }
+    }
+
+    public void mandarMail(){
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_EMAIL,
+                new String[]{"javier_m_h_1993@hotmail.com"});
+        intent.putExtra(Intent.EXTRA_SUBJECT, "lee");
+        intent.putExtra(Intent.EXTRA_TEXT, "cuerpo de mensaje");
+        intent.setType("message/rfc822");
+        startActivity(Intent.createChooser(intent, "Elije un cliente de correo:"));
     }
 
 }
