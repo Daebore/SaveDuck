@@ -80,7 +80,12 @@ public class MainActivity extends AppCompatActivity {
 
         mainBinding.textoGastosDinero.setText(calcularGastos() + "€");
 
-        mainBinding.textoBlance.setText(user.ingresos + "€");
+        if(user.ingresos < 0){
+            mainBinding.textoBlance.setTextColor(getResources().getColor(R.color.color_gastos));
+            mainBinding.textoBlance.setText(user.ingresos + "€");
+        }else{
+            mainBinding.textoBlance.setText(user.ingresos + "€");
+        }
 
     }
 

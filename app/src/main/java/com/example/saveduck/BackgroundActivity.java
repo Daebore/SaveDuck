@@ -107,6 +107,11 @@ public class BackgroundActivity extends AppCompatActivity {
 
             textoGastos.setText(Integer.toString((int) gastos));
 
+            if(obtenerAhorros() < 0){
+                textoAhorrado.setText(Integer.toString((int) obtenerAhorros()));
+                backBinding.textoAhorrado.setTextColor(getResources().getColor(R.color.color_gastos));
+            }
+
             textoAhorrado.setText(Integer.toString((int) obtenerAhorros()));
 
             // Este método va a mostrar un toast/mensaje u otro dependiendo de si el balance es positivo o no
@@ -141,6 +146,13 @@ public class BackgroundActivity extends AppCompatActivity {
             // Mostramos la información de la BBDD en sus respectivos campos
             textoIngresos.setText(Integer.toString((int) calcularIngresos()));
             textoGastos.setText(Integer.toString((int) calcularGastos()));
+
+            if(obtenerAhorros() < 0){
+                textoAhorrado.setText(Integer.toString((int) obtenerAhorros()));
+                backBinding.textoAhorrado.setTextColor(getResources().getColor(R.color.color_gastos));
+            }
+
+            textoAhorrado.setText(Integer.toString((int) obtenerAhorros()));
 
             // Este método va a mostrar un toast/mensaje u otro dependiendo de si el balance es positivo o no
             comprobarBalance(ingresos, gastos);
