@@ -23,7 +23,9 @@ import com.example.saveduck.databinding.ActivityBackgroundBinding;
 import org.eazegraph.lib.charts.PieChart;
 import org.eazegraph.lib.models.PieModel;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class BackgroundActivity extends AppCompatActivity {
 
@@ -61,7 +63,7 @@ public class BackgroundActivity extends AppCompatActivity {
         backBinding.botonMostrarGa.setOnClickListener(v -> {
             openShowSpent();
         });
-        
+
         backBinding.botonMCorreo.setOnClickListener(v -> {
             mandarMail();
         });
@@ -284,13 +286,36 @@ public class BackgroundActivity extends AppCompatActivity {
     }
 
     public void mandarMail(){
+        bd = SaveDataBase.getDatabase(getApplicationContext());
+
+        // Todos los objetos acabados en Dao hacen referencia a la clase en la que están declarado
+        // los métodos que van a permitir realizar las operacinoes CRUD de la BBDD
+        UserDao userDao = bd.userDao();
+
+        // Instanciamos un objeto de la tabla User y obtenemos todos los datos del usuario (como solo
+        // tenemos un usuario en la BBDD, con poner get y la posición 0 nos vale)
+        User user = userDao.getAll().get(0);
+        String nombre = user.nombre;
+        String mail = user.correo;
+
+        String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
+
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.putExtra(Intent.EXTRA_EMAIL,
-                new String[]{"javier_m_h_1993@hotmail.com"});
-        intent.putExtra(Intent.EXTRA_SUBJECT, "lee");
-        intent.putExtra(Intent.EXTRA_TEXT, "cuerpo de mensaje");
+                new String[]{mail});
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Resumen financiero SaveDuck");
+        intent.putExtra(Intent.EXTRA_TEXT, "Hola " + nombre + ", \nTu resumen financiero de SaveDuck a fecha: " +
+               timeStamp + " es el siguiente:\nIngresos totales: " + calcularIngresos() + "\nGastos totales: " +
+                calcularGastos() + "\nDinero ahorrado: " + obtenerAhorros());
+
         intent.setType("message/rfc822");
         startActivity(Intent.createChooser(intent, "Elije un cliente de correo:"));
+
+        /*
+        Log.d("Quest_view", "Correo enviado");
+        AppToast.showMessage(this, "Correo enviado", Toast.LENGTH_SHORT);
+        */
+
     }
 
 }

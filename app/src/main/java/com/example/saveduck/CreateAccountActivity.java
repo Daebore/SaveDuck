@@ -76,7 +76,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                 Log.d("Create_view", "El tamaño del nombre no puede superar los 10 caracteres");
                 AppToast.showMessage(this, "El tamaño del nombre no puede superar los 10 caracteres", Toast.LENGTH_SHORT);
             }else if(nombre.toLowerCase().contains("select") || nombre.toLowerCase().contains("delete") || nombre.toLowerCase().contains("drop")
-            || nombre.toLowerCase().contains("insert") || nombre.toLowerCase().contains("update")){
+                    || nombre.toLowerCase().contains("insert") || nombre.toLowerCase().contains("update")){
                 // Para evitar SQL Injections
                 Log.d("Create_view", "Nombre no permitido");
                 AppToast.showMessage(this, "Nombre no permitido", Toast.LENGTH_SHORT);
@@ -85,11 +85,16 @@ public class CreateAccountActivity extends AppCompatActivity {
                 Log.d("Create_view", "El tamaño del correo no puede superar los 35 caracteres");
                 AppToast.showMessage(this, "El tamaño del correo no puede superar los 35 caracteres", Toast.LENGTH_SHORT);
             }else if(correo.toLowerCase().contains("select") || correo.toLowerCase().contains("delete") || correo.toLowerCase().contains("drop")
-                    || correo.toLowerCase().contains("insert") || correo.toLowerCase().contains("update") ||
-                    !correo.contains("@")){
+                    || correo.toLowerCase().contains("insert") || correo.toLowerCase().contains("update")){
                 // Para evitar SQL Injections o formato de correo no válido
                 Log.d("Create_view", "Nombre de correo no permitido");
                 AppToast.showMessage(this, "Nombre de correo no permitido", Toast.LENGTH_SHORT);
+            }else if(!correo.toLowerCase().contains("gmail.com") && !correo.toLowerCase().contains("gmail.es")
+                    && !correo.toLowerCase().contains("hotmail.com") && !correo.toLowerCase().contains("hotmail.es")
+                    && !correo.toLowerCase().contains("outlook.com") && !correo.toLowerCase().contains("outlook.es")){
+                // Para que asegurar que el formato de correo es válido
+                Log.d("Create_view", "Formato de correo no válido");
+                AppToast.showMessage(this, "Formato de correo no válido", Toast.LENGTH_SHORT);
             }else if(ingresosDouble != 0 && ingresosDouble > 1000000){
                 // Para evitar desbordar la variable
                 Log.d("Create_view", "Los ingresos iniciales no pueden superar los 1000000€");
