@@ -304,9 +304,10 @@ public class BackgroundActivity extends AppCompatActivity {
         intent.putExtra(Intent.EXTRA_EMAIL,
                 new String[]{mail});
         intent.putExtra(Intent.EXTRA_SUBJECT, "Resumen financiero SaveDuck");
-        intent.putExtra(Intent.EXTRA_TEXT, "Hola " + nombre + ", \nTu resumen financiero de SaveDuck a fecha: " +
-               timeStamp + " es el siguiente:\nIngresos totales: " + calcularIngresos() + "\nGastos totales: " +
-                calcularGastos() + "\nDinero ahorrado: " + obtenerAhorros());
+        intent.putExtra(Intent.EXTRA_TEXT, "Hola " + nombre + ", \n\nEste es tu resumen financiero de SaveDuck: " +
+               "\nFecha: " + timeStamp + "\nIngresos totales: " + calcularIngresos() + "€" + "\nGastos totales: " +
+                calcularGastos() + "€" + "\nDinero ahorrado: " + obtenerAhorros() + "€" + "\n\nGracias por usar SaveDuck," +
+                "\nUn saludo.");
 
         intent.setType("message/rfc822");
         startActivity(Intent.createChooser(intent, "Elije un cliente de correo:"));
