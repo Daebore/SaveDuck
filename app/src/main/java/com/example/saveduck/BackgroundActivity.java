@@ -54,16 +54,17 @@ public class BackgroundActivity extends AppCompatActivity {
         backBinding = ActivityBackgroundBinding.inflate(getLayoutInflater());
         setContentView(backBinding.getRoot());
 
-        // Si pulsamos el boton botonMostrarIn nos movemos a ShowIncomeActivity
+        // Si pulsamos el botón botonMostrarIn nos movemos a ShowIncomeActivity
         backBinding.botonMostrarIn.setOnClickListener(v -> {
             openShowIncome();
         });
 
-        // Si pulsamos el boton botonMostrarGa nos movemos a ShowSpentActivity
+        // Si pulsamos el botón botonMostrarGa nos movemos a ShowSpentActivity
         backBinding.botonMostrarGa.setOnClickListener(v -> {
             openShowSpent();
         });
 
+        // Si pulsamos el botón botonMCorreo enviaremos un correo con el resumen de toda la actividad
         backBinding.botonMCorreo.setOnClickListener(v -> {
             mandarMail();
         });
@@ -285,6 +286,9 @@ public class BackgroundActivity extends AppCompatActivity {
         }
     }
 
+    // Este método nos permitirá enviar un correo electrónico utilizando una aplicación externa
+    // que tendrá el resumen financiero del usuario. Se enviará desde y hacia el correo introducido
+    // a la hora de registrarse el usuario
     public void mandarMail(){
         bd = SaveDataBase.getDatabase(getApplicationContext());
 
@@ -298,8 +302,10 @@ public class BackgroundActivity extends AppCompatActivity {
         String nombre = user.nombre;
         String mail = user.correo;
 
+        // Con esta línea obtenemos la fecha y la hora actuales y lo guardamos en un String
         String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
 
+        // Mediante Intent, vamos a invocar una aplicación externa de mensajería
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.putExtra(Intent.EXTRA_EMAIL,
                 new String[]{mail});
@@ -311,11 +317,6 @@ public class BackgroundActivity extends AppCompatActivity {
 
         intent.setType("message/rfc822");
         startActivity(Intent.createChooser(intent, "Elije un cliente de correo:"));
-
-        /*
-        Log.d("Quest_view", "Correo enviado");
-        AppToast.showMessage(this, "Correo enviado", Toast.LENGTH_SHORT);
-        */
 
     }
 
