@@ -56,8 +56,6 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints">
 
-
-
             <EditText
                 android:id="@+id/etNombreUsuario"
                 android:layout_width="350dp"
@@ -104,14 +102,13 @@
                 android:background="@drawable/custom_edit_text"
                 android:drawableLeft="@drawable/ic_money"
                 android:drawablePadding="5dp"
-                android:hint="Ingresos iniciales..."
+                android:hint="Saldo inicial..."
                 android:inputType="numberDecimal"
                 android:textColor="@color/black"
                 android:textSize="21sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etCorreo" />
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -154,6 +151,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/checkBoxAceptar"
                 app:layout_constraintVertical_bias="0.486" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

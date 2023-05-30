@@ -13,7 +13,6 @@
         android:background="@color/grey"
         tools:context=".MainActivity">
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout0"
             android:layout_width="360dp"
@@ -160,7 +159,6 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:srcCompat="@drawable/barra" />
 
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -220,7 +218,6 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:srcCompat="@drawable/barra" />
-
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

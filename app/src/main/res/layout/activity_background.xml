@@ -25,14 +25,11 @@
             android:elevation="10dp"
             app:cardCornerRadius="10dp">
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:weightSum="2">
-
-                <!--Pie chart to display the data-->
 
                 <org.eazegraph.lib.charts.PieChart
                     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -58,13 +55,11 @@
                         android:layout_height="24dp"
                         android:layout_gravity="center_vertical">
 
-                        <!--View to display the yellow color icon-->
                         <View
                             android:layout_width="15dp"
                             android:layout_height="match_parent"
                             android:background="@color/color_ingresos" />
 
-                        <!--Text view to display R -->
                         <TextView
                             android:layout_width="66dp"
                             android:layout_height="match_parent"
@@ -76,20 +71,17 @@
 
                     </LinearLayout>
 
-                    <!--Linear layout to display Python-->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="24dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginTop="5dp">
 
-                        <!--View to display the green color icon-->
                         <View
                             android:layout_width="15dp"
                             android:layout_height="match_parent"
                             android:background="@color/color_gastos" />
 
-                        <!--Text view to display python text -->
                         <TextView
                             android:layout_width="56dp"
                             android:layout_height="match_parent"
@@ -101,20 +93,17 @@
 
                     </LinearLayout>
 
-                    <!--Linear layout to display C++-->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="24dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginTop="5dp">
 
-                        <!--View to display the red color icon-->
                         <View
                             android:layout_width="15dp"
                             android:layout_height="match_parent"
                             android:background="@color/color_ahorro" />
 
-                        <!--Text view to display C++ text -->
                         <TextView
                             android:layout_width="70dp"
                             android:layout_height="match_parent"
@@ -160,7 +149,6 @@
                     android:textSize="23sp"
                     android:textStyle="bold" />
 
-                <!--View to display the line-->
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -200,7 +188,6 @@
                         android:textStyle="bold" />
                 </RelativeLayout>
 
-                <!--View to display the line-->
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"

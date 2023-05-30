@@ -8,6 +8,7 @@ import android.view.KeyEvent;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.example.saveduck.dataBase.Expense;
 import com.example.saveduck.dataBase.ExpenseDao;
@@ -80,8 +81,9 @@ public class MainActivity extends AppCompatActivity {
 
         mainBinding.textoGastosDinero.setText(calcularGastos() + "€");
 
+        // Si los ahorros son negativo, mostramos la cifra en rojo
         if(user.ingresos < 0){
-            mainBinding.textoBlance.setTextColor(getResources().getColor(R.color.color_gastos));
+            mainBinding.textoBlance.setTextColor(ContextCompat.getColor(this, R.color.color_gastos));
             mainBinding.textoBlance.setText(user.ingresos + "€");
         }else{
             mainBinding.textoBlance.setText(user.ingresos + "€");

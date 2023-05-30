@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.example.saveduck.dataBase.Expense;
 import com.example.saveduck.dataBase.ExpenseDao;
@@ -107,6 +108,7 @@ public class BackgroundActivity extends AppCompatActivity {
 
             textoGastos.setText(Integer.toString((int) gastos));
 
+            // Si los ahorros son negativo, mostramos la cifra en rojo
             if(obtenerAhorros() < 0){
                 textoAhorrado.setText(Integer.toString((int) obtenerAhorros()));
                 backBinding.textoAhorrado.setTextColor(getResources().getColor(R.color.color_gastos));
@@ -147,9 +149,10 @@ public class BackgroundActivity extends AppCompatActivity {
             textoIngresos.setText(Integer.toString((int) calcularIngresos()));
             textoGastos.setText(Integer.toString((int) calcularGastos()));
 
+            // Si los ahorros son negativo, mostramos la cifra en rojo
             if(obtenerAhorros() < 0){
                 textoAhorrado.setText(Integer.toString((int) obtenerAhorros()));
-                backBinding.textoAhorrado.setTextColor(getResources().getColor(R.color.color_gastos));
+                backBinding.textoAhorrado.setTextColor(ContextCompat.getColor(this, R.color.color_gastos));
             }
 
             textoAhorrado.setText(Integer.toString((int) obtenerAhorros()));
