@@ -70,9 +70,35 @@ If the process has been successfully, a pop up will be sound alongside with a ri
 
 ## :bar_chart: :e-mail: Background
 
+This screen is one of the more importance of the whole App.
+It is composed of the next elements:
+<ul>
+  <li>A Pie Chart which shows the total amount of income, expenses and saved money. All the data is extracted from the Database.</li>
+  <li>A summary of the user's financials situation which will displayed the same information from the Chart using numbers.</li>
+    <li>Three buttons with different functionalities:</li>
+    <ul>
+      <li>Show income history: Allows the user to see all the income movements that have been recorded</li>
+      <li>Show spending history: Allows the user to see all the expenses movements that have been recorded</li>
+      <li>Send and email: Allows the user to send an email to him/herself with a summary of all the financial situation, alongside with the date</li>
+    </ul>
+  </ul>
+
 ## :euro: :notebook: Income history
+This screen is created with all the income records on the Database and displays the date in which the income was made, the quantity and a concept (not necessary).
+
+The more income registered in the DataBase, the more data is shown here. If there are so many of them, the user can simply scroll the screen up or down.
 
 ## :money_with_wings: :notebook: Spending history
+
+This screen is created with all the expense records on the Database and displays the date in which the income was made, the quantity and a concept (not necessary).
+
+The more expenses registered in the DataBase, the more data is shown here. If there are so many of them, the user can simply scroll the screen up or down.
+
+## :heavy_plus_sign: Additional info
+
+- This App implements Data Biding, a modern and useful way of coding for Android which binds data sources from the provider (XML) and consumer (Java) - together and synchronizes them, leading in a clenner code, a faster performance (replacing findViewById) and reducing bugs.
+- All the pop up/toast messages which appears in the App when a determined action is made have been programmed with an additional Java class is order to customize the way they appear and to avoid bugs
+
 
 ## ✍️ Author
 https://github.com/Daebore
