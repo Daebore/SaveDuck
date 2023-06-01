@@ -29,17 +29,23 @@
 
 - Very **easy to use** :baby:
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## :iphone: Opening the App
 
 Every time you enter the App, a Splash Screen will appear with a welcomed message, a duck sound and an animation. 
 
 This screen only stands for two second and its only function is to greet the user.
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## :man: :woman: Creating an account
 
 The first time you use SaveDuck, you will have to fill a questionnaire with your personal data and to accept the  privacy policy and terms of use.
 
 This data will be saved in a database, so if the account is created, this screen will never show up again.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## :house: Main page
 
@@ -56,17 +62,23 @@ Apart from that, there are also three bottons in this screen:
   - Add Expense: By pressing this button, the user will be able to add a new spent.
   - View history: By pressing this button, the user will be able to see all the records registered in the App.
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## :dollar: Recording an income
 
 In this screen the user can add a new income with a concept (not required).
 
 If the process has been successfully, a pop up will be sound alongside with a coin sound.
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## :money_with_wings: Recording an spent
 
 In this screen the user can add a new spent with a concept (not required).
 
 If the process has been successfully, a pop up will be sound alongside with a ring sound.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## :bar_chart: :e-mail: Background
 
@@ -82,6 +94,8 @@ It is composed of the next elements:
       <li>Send and email: Allows the user to send an email to him/herself with a summary of all the financial situation, alongside with the date</li>
     </ul>
   </ul>
+  
+  <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## :euro: :notebook: Income history
 This screen is created with all the income records on the Database and displays the date in which the income was made, the quantity and a concept (not necessary).
@@ -90,6 +104,8 @@ The more income registered in the DataBase, the more data is shown here. If ther
 
 If there is no record to shown, a message will be shown.
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## :money_with_wings: :notebook: Spending history
 
 This screen is created with all the expense records on the Database and displays the date in which the income was made, the quantity and a concept (not necessary).
@@ -97,6 +113,8 @@ This screen is created with all the expense records on the Database and displays
 The more expenses registered in the DataBase, the more data is shown here. If there are so many of them, the user can simply scroll the screen up or down.
 
 As we have seen previously if there is no record to shown, a message will be shown.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## :heavy_plus_sign: Additional info
 
@@ -110,5 +128,9 @@ As we have seen previously if there is no record to shown, a message will be sho
 
 - To make sure no background process are running and consuming resources, every time the user moves to other screen, all the process from the previous one are finished.
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## ✍️ Author
 https://github.com/Daebore
+
+<p align="right">(<a href="#top">back to top</a>)</p>
