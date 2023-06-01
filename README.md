@@ -15,19 +15,19 @@
 </p>
 
 ## 	:page_facing_up: Features 
-- Personal tracking of the user's income and expenses :euro:
+- Personal **tracking** of the user's **income and expenses** :euro:
 
-- Helps the user to save money :moneybag:
+- Helps the user to **save money** :moneybag:
 
-- Provides visual data about the current financial status :bar_chart:
+- Provides **visual data** about the **current financial status** :bar_chart:
 
-- Sends emails to the user with a summary of the situation :email:
+- Sends emails to the user with a **summary of the financial situation** :email:
 
-- Saves all the incomes and expenses movements :notebook:
+- Saves all the **incomes and expenses movements** :notebook:
 
-- Allows the user to check out all the financial movements :mag_right:
+- Allows the user to **check out all the financial movements** :mag_right:
 
-- Very easy to use :baby:
+- Very **easy to use** :baby:
 
 ## :iphone: Opening the App
 
@@ -39,7 +39,7 @@ This screen only stands for two second and its only function is to greet the use
 
 The first time you use SaveDuck, you will have to fill a questionnaire with your personal data and to accept the  privacy policy and terms of use.
 
-This data will be saved in a database.
+This data will be saved in a database, so if the account is created, this screen will never show up again.
 
 ## :house: Main page
 
@@ -88,17 +88,27 @@ This screen is created with all the income records on the Database and displays 
 
 The more income registered in the DataBase, the more data is shown here. If there are so many of them, the user can simply scroll the screen up or down.
 
+If there is no record to shown, a message will be shown.
+
 ## :money_with_wings: :notebook: Spending history
 
 This screen is created with all the expense records on the Database and displays the date in which the income was made, the quantity and a concept (not necessary).
 
 The more expenses registered in the DataBase, the more data is shown here. If there are so many of them, the user can simply scroll the screen up or down.
 
+As we have seen previously if there is no record to shown, a message will be shown.
+
 ## :heavy_plus_sign: Additional info
 
-- This App implements Data Biding, a modern and useful way of coding for Android which binds data sources from the provider (XML) and consumer (Java) - together and synchronizes them, leading in a clenner code, a faster performance (replacing findViewById) and reducing bugs.
-- All the pop up/toast messages which appears in the App when a determined action is made have been programmed with an additional Java class is order to customize the way they appear and to avoid bugs
+- This App implements Data Biding, a modern and useful way of coding for Android which binds data sources from the provider (XML) and consumer (Java) together and synchronizes them, leading in a clenner code, a faster performance (replacing findViewById) and reducing bugs.
 
+- All the pop up/toast messages which appears in the App when a determined action is made have been programmed with an additional Java class is order to customize the way they appear and to avoid bugs.
+
+- The App's DataBase was created using a library of SQLite Called Room, which uses the singleton software design pattern to create or return a DataBase. Room allows the App to work with the table's records as objects and allows the user to create him/her CRUD methods and ivoking them.
+
+- All the income/expenses records are saved in the DataBase using the current data and time as the Primary Key.
+
+- To make sure no background process are running and consuming resources, every time the user moves to other screen, all the process from the previous one are finished.
 
 ## ✍️ Author
 https://github.com/Daebore
