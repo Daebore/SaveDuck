@@ -128,8 +128,8 @@ If the process has been successfully, a pop up will be sound alongside with a ri
 
 <p align="right">(<a href="#top">Back to top</a>)</p>
 
-## :bar_chart: :e-mail: Financial Background
 <a name="Financial-Background"></a> 
+## :bar_chart: :e-mail: Financial Background
 
 <p align="center">
   <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/7back.jpg?raw=true" width="225" height="440"/>
