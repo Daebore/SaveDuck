@@ -25,18 +25,17 @@
     <li>
       <a href="#-Creating an account">Creating an account</a>
     </li>
-    <li><a href="#-Main page">Main page</a></li>
-    <li><a href="#-Recording an income">Recording an income</a></li>
-    <li><a href="#-Recording a spent">Recording an spent</a></li>
-      <li><a href="#-Financial Background">Financial Background</a></li>
-      <li><a href="#-Income history">Income history</a></li>
-      <li><a href="#-Spending history">Spending history</a></li>
-      <li><a href="#-Additional info">Additional info</a></li>
+    <li><a href="#-Main-page">Main page</a></li>
+    <li><a href="#-Recording-an-income">Recording an income</a></li>
+    <li><a href="#-Recording-a-spent">Recording an spent</a></li>
+      <li><a href="#-Financial-Background">Financial Background</a></li>
+      <li><a href="#-Income-history">Income history</a></li>
+      <li><a href="#-Spending-history">Spending history</a></li>
+      <li><a href="#-Additional-info">Additional info</a></li>
   </ol>
 </details>
 
 ## 	:page_facing_up: Features 
-  <a href="https://github.com/Daebore/SaveDuck">
 - Personal **tracking** of the user's **income and expenses** :euro:
 
 - Helps the user to **save money** :moneybag:
