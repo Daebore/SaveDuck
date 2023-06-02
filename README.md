@@ -1,7 +1,7 @@
 # SaveDuck :dollar: :baby_chick:
 
 <p align="center">
-  <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/logo.png?raw=true" alt="drawing" width="300"/>
+  <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/logo.png?raw=true" alt="drawing" width="320"/>
 </p>
 <p align="center">
   SaveDuck is an Android application whose purpose is to help people to control the money they spend and to save money.
