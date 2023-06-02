@@ -49,6 +49,7 @@
 
 <p align="right">(<a href="#top">Back to top</a>)</p>
 
+<a name="Opening the App"></a> 
 ## :iphone: Opening the App
 
 <p align="center">
