@@ -54,7 +54,7 @@
 ## :iphone: Opening the App
 
 <p align="center">
-  <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/1splash.jpg?raw=true" alt="drawing" width="225" height="440"/>
+  <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/1splash.jpg?raw=true" alt="drawing" width="230" height="460"/>
 </p>
 
 Every time you enter the App, a Splash Screen will appear with a welcomed message, a duck sound and an animation. 
@@ -67,7 +67,7 @@ This screen only stands for two second and its only function is to greet the use
 ## :man: :woman: Creating an account
 
 <p align="center">
-  <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/2create.jpg?raw=true" alt="drawing" width="225" height="440"/>
+  <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/2create.jpg?raw=true" alt="drawing" width="230" height="460"/>
 </p>
 
 The first time you use SaveDuck, you will have to fill a questionnaire with your personal data and to accept the  privacy policy and terms of use.
@@ -80,7 +80,7 @@ This data will be saved in a database, so if the account is created, this screen
 ## :house: Main page
 
 <p align="center">
-  <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/3main.jpg?raw=true" alt="drawing" width="225" height="440"/>
+  <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/3main.jpg?raw=true" alt="drawing" width="230" height="460"/>
 </p>
 
 This is the main screen where the next will be dispalyed:
@@ -92,7 +92,7 @@ This is the main screen where the next will be dispalyed:
 The saved money will be shown in red color in case the expenses has surpassed the income plus the initial balance.
 
 <p align="center">
-  <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/4mainneg.jpg?raw=true" width="225" height="440"/>
+  <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/4mainneg.jpg?raw=true" width="230" height="460"/>
 </p>
 
 Apart from that, there are also three bottons in this screen:
@@ -106,7 +106,7 @@ Apart from that, there are also three bottons in this screen:
 ## :dollar: Recording an income
 
 <p align="center">
-  <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/5income.jpg?raw=true" width="225" height="440"/>
+  <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/5income.jpg?raw=true" width="230" height="460"/>
 </p>
 
 In this screen the user can add a new income with a concept (not required).
@@ -119,7 +119,7 @@ If the process has been successfully, a pop up will be sound alongside with a co
 ## :money_with_wings: Recording a spent
 
 <p align="center">
-  <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/6spent.jpg?raw=true" width="225" height="440"/>
+  <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/6spent.jpg?raw=true" width="230" height="460"/>
 </p>
 
 In this screen the user can add a new spent with a concept (not required).
@@ -132,7 +132,7 @@ If the process has been successfully, a pop up will be sound alongside with a ri
 ## :bar_chart: :e-mail: Financial Background
 
 <p align="center">
-  <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/7back.jpg?raw=true" width="225" height="440"/>
+  <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/7back.jpg?raw=true" width="230" height="460"/>
 </p>
 
 This screen is one of the more importance of the whole App.
@@ -149,7 +149,7 @@ It is composed of the next elements:
   </ul>
     
   <p align="center">
-  <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/11mail.jpg?raw=true" width="225" height="440"/>
+  <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/11mail.jpg?raw=true" width="230" height="460"/>
 </p>
   
   <p align="right">(<a href="#top">Back to top</a>)</p>
@@ -158,7 +158,7 @@ It is composed of the next elements:
 ## :euro: :notebook: Income history
 
   <p align="center">
-  <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/8showincome.jpg?raw=true" width="225" height="440"/>
+  <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/8showincome.jpg?raw=true" width="230" height="460"/>
 </p>
 
 This screen is created with all the income records on the Database and displays the date in which the income was made, the quantity and a concept (not necessary).
@@ -168,7 +168,7 @@ The more income registered in the DataBase, the more data is shown here. If ther
 If there is no record to shown, a message will be shown.
 
 <p align="center">
-  <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/9noshow.jpg?raw=true" width="225" height="440"/>
+  <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/9noshow.jpg?raw=true" width="230" height="460"/>
 </p>
 
 <p align="right">(<a href="#top">Back to top</a>)</p>
@@ -183,7 +183,7 @@ The more expenses registered in the DataBase, the more data is shown here. If th
 As we have seen previously if there is no record to shown, a message will be shown.
 
 <p align="center">
-  <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/10showspent.jpg?raw=true" width="225" height="440"/>
+  <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/10showspent.jpg?raw=true" width="230" height="460"/>
 </p>
 
 <p align="right">(<a href="#top">Back to top</a>)</p>
