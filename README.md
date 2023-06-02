@@ -31,8 +31,9 @@
   </ol>
 </details>
 
-<a name="Features"></a> 
 ## 	:page_facing_up: Features 
+<a name="Features"></a> 
+
 - Personal **tracking** of the user's **income and expenses** :euro:
 
 - Helps the user to **save money** :moneybag:
@@ -49,8 +50,8 @@
 
 <p align="right">(<a href="#top">Back to top</a>)</p>
 
-<a name="Opening-the-App"></a> 
 ## :iphone: Opening the App
+<a name="Opening-the-App"></a> 
 
 <p align="center">
   <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/1splash.jpg?raw=true" alt="drawing" width="225" height="440"/>
@@ -63,6 +64,7 @@ This screen only stands for two second and its only function is to greet the use
 <p align="right">(<a href="#top">Back to top</a>)</p>
 
 ## :man: :woman: Creating an account
+<a name="Creating-an-account"></a> 
 
 <p align="center">
   <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/2create.jpg?raw=true" alt="drawing" width="225" height="440"/>
@@ -75,6 +77,7 @@ This data will be saved in a database, so if the account is created, this screen
 <p align="right">(<a href="#top">Back to top</a>)</p>
 
 ## :house: Main page
+<a name="Main-page"></a> 
 
 <p align="center">
   <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/3main.jpg?raw=true" alt="drawing" width="225" height="440"/>
@@ -100,6 +103,7 @@ Apart from that, there are also three bottons in this screen:
 <p align="right">(<a href="#top">Back to top</a>)</p>
 
 ## :dollar: Recording an income
+<a name="Recording-an-income"></a> 
 
 <p align="center">
   <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/5income.jpg?raw=true" width="225" height="440"/>
@@ -112,6 +116,7 @@ If the process has been successfully, a pop up will be sound alongside with a co
 <p align="right">(<a href="#top">Back to top</a>)</p>
 
 ## :money_with_wings: Recording a spent
+<a name="Recording-a-spent"></a> 
 
 <p align="center">
   <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/6spent.jpg?raw=true" width="225" height="440"/>
@@ -124,6 +129,7 @@ If the process has been successfully, a pop up will be sound alongside with a ri
 <p align="right">(<a href="#top">Back to top</a>)</p>
 
 ## :bar_chart: :e-mail: Financial Background
+<a name="Financial-Background"></a> 
 
 <p align="center">
   <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/7back.jpg?raw=true" width="225" height="440"/>
@@ -149,6 +155,7 @@ It is composed of the next elements:
   <p align="right">(<a href="#top">Back to top</a>)</p>
 
 ## :euro: :notebook: Income history
+<a name="Income-history"></a> 
 
   <p align="center">
   <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/8showincome.jpg?raw=true" width="225" height="440"/>
@@ -167,6 +174,7 @@ If there is no record to shown, a message will be shown.
 <p align="right">(<a href="#top">Back to top</a>)</p>
 
 ## :money_with_wings: :notebook: Spending history
+<a name="Spending-history"></a> 
 
 This screen is created with all the expense records on the Database and displays the date in which the income was made, the quantity and a concept (not necessary).
 
@@ -181,6 +189,7 @@ As we have seen previously if there is no record to shown, a message will be sho
 <p align="right">(<a href="#top">Back to top</a>)</p>
 
 ## :heavy_plus_sign: Additional info
+<a name="Additional-info"></a> 
 
 - This App implements Data Biding, a modern and useful way of coding for Android which binds data sources from the provider (XML) and consumer (Java) together and synchronizes them, leading in a clenner code, a faster performance (replacing findViewById) and reducing bugs.
 
