@@ -165,7 +165,7 @@ This screen is created with all the income records on the Database and displays 
 
 The more income registered in the DataBase, the more data is shown here. If there are so many of them, the user can simply scroll the screen up or down.
 
-If there is no record to shown, a message will be shown.
+If there is no record to show, a message will be shown.
 
 <p align="center">
   <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/9noshow.jpg?raw=true" width="230" height="460"/>
@@ -180,7 +180,7 @@ This screen is created with all the expense records on the Database and displays
 
 The more expenses registered in the DataBase, the more data is shown here. If there are so many of them, the user can simply scroll the screen up or down.
 
-As we have seen previously if there is no record to shown, a message will be shown.
+As we have seen previously if there is no record to show, a message will be shown.
 
 <p align="center">
   <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/10showspent.jpg?raw=true" width="230" height="460"/>
@@ -191,7 +191,7 @@ As we have seen previously if there is no record to shown, a message will be sho
 <a name="Additional-info"></a> 
 ## :heavy_plus_sign: Additional info
 
-- This App implements Data Biding, a modern and useful way of coding for Android which binds data sources from the provider (XML) and consumer (Java) together and synchronizes them, leading in a clenner code, a faster performance (replacing findViewById) and reducing bugs.
+- This App implements Data Biding, a modern and useful way of coding for Android which binds data sources from the provider (XML) and consumer (Java) together and synchronizes them, leading in a cleaner code, a faster performance (replacing findViewById) and reducing bugs.
 
 - All the pop up/toast messages which appears in the App when a determined action is made have been programmed with an additional Java class is order to customize the way they appear and to avoid bugs.
 
