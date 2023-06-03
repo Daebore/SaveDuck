@@ -83,10 +83,10 @@ This data will be saved in a database, so if the account is created, this screen
   <img src="https://github.com/Daebore/Images/blob/main/Fotos%20SaveDuck/3main.jpg?raw=true" alt="drawing" width="230" height="460"/>
 </p>
 
-This is the main screen where the next will be dispalyed:
+This is the main screen where the next will be displayed:
   - The user's name.
-  - The total amouth of income. 
-  - The total amouth of expenses. 
+  - The total amount of income. 
+  - The total amount of expenses. 
   - The quantity of money saved. 
 
 The saved money will be shown in red color in case the expenses has surpassed the income plus the initial balance.
